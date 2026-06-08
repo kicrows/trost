@@ -1,0 +1,1269 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	--color-text: #000;
+	--color-bg: #fff;
+	--color-link: #000;
+	--color-link-hover: #000;
+	/* Fluid typography: slightly reduced global text scale */
+	--font-size-desktop: clamp(12px, 10px + 0.36vw, 14px);
+	--font-size-mobile: clamp(12px, 10px + 0.36vw, 14px);
+	font-size: var(--font-size-desktop);
+	/* Headline fluid: slightly reduced to match body scale change */
+	--headline-font-size-desktop: clamp(3.75rem, 3.75rem + 0.8vw, 2.4rem);
+	--headline-font-size-mobile: clamp(2.75rem, 2.75rem + 0.8vw, 2.4rem);
+	/* Fixed inset for nav/buttons so padding doesn't scale with fluid type */
+	--nav-inset: 15px;
+	--headline-letter-spacing: -0.08em;
+	--headline-line-height-desktop: 1.0;
+	--headline-line-height-mobile: 1.0;
+	/* Body text line height - global variable */
+	--body-line-height-desktop: 1.3;
+	--body-line-height-mobile: 1.3;
+	/* Body text letter spacing - global variables */
+	--body-letter-spacing-desktop: -0.00em;
+	--body-letter-spacing-mobile: -0.00em;
+	--body-letter-spacing-large: -0.00em;
+	--body-letter-spacing-extra-large: -0.00em;
+	/* Button dimensions - consistent across all buttons */
+	--button-margin: 30px; /* Outer spacing between buttons */
+	--button-inner-padding: 15px; /* Inner padding inside buttons */
+	--button-height: 36px; /* Fixed height for all buttons */
+}
+
+body {
+	margin: 0;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	text-transform: uppercase;
+	font-family: Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	/* Responsive background image that stretches to fit any resolution */
+	background-image: url('../img/logo-trost-filter-01.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+/* Page Loader */
+.js .loading::before,
+.js .loading::after {
+	content: '';
+	position: fixed;
+	z-index: 1000;
+}
+
+.js .loading::before {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-bg);
+}
+
+.js .loading::after {
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	border-radius: 50%;
+	opacity: 0.4;
+	background: var(--color-link);
+	animation: loaderAnim 0.7s linear infinite alternate forwards;
+
+}
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5,0.5,1);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+	cursor: pointer;
+}
+
+a:hover {
+	color: var(--color-link-hover);
+	outline: none;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+	/* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+	outline: none;
+	background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+	/* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+	background: transparent;
+}
+
+a:focus-visible {
+	/* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+	outline: 2px solid red;
+	background: transparent;
+}
+
+.unbutton {
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+.unbutton:focus {
+	outline: none;
+}
+
+/* Top navigation container - holds all top nav elements in one row */
+.frame__top-nav {
+	position: fixed;
+	top: var(--nav-inset);
+	left: var(--nav-inset);
+	right: var(--nav-inset);
+	z-index: 500;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+/* Right side navigation group - Instagram, Address, and SHOWS toggle (mobile index only) */
+.frame__top-nav-right {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin-left: auto;
+	order: 3;
+	flex-shrink: 0;
+}
+
+/* Top-right nav buttons: same 15px inner padding as show buttons */
+.frame__top-nav-right .frame__instagram.button,
+.frame__top-nav-right .frame__info.button,
+.frame__top-nav-right .frame__address.button {
+	padding: var(--button-inner-padding);
+}
+
+/* Burger / nav overlay: hidden on desktop, shown only on mobile index via MQ */
+.frame__burger {
+	display: none;
+}
+
+.nav-overlay {
+	display: none;
+}
+
+/* Burger icon: 2 lines, 2px stroke */
+.frame__burger .burger-icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+	width: 24px;
+	height: 18px;
+}
+
+.frame__burger .burger-line {
+	display: block;
+	width: 24px;
+	height: 2px;
+	background: currentColor;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	transform-origin: center;
+}
+
+/* Burger → X: first line rotates 45deg down, second -45deg up */
+body.nav-overlay-open .frame__burger .burger-line:first-child {
+	transform: translateY(3px) rotate(45deg);
+}
+
+body.nav-overlay-open .frame__burger .burger-line:last-child {
+	transform: translateY(-3px) rotate(-45deg);
+}
+
+/* Show/hide text for mobile/desktop - default desktop */
+.instagram-text-desktop,
+.address-text-desktop,
+.back-text-desktop,
+.info-text-desktop {
+	display: inline;
+}
+
+.instagram-text-mobile,
+.address-text-mobile,
+.back-text-mobile,
+.info-text-mobile {
+	display: none;
+}
+
+/* Top navigation divs */
+.frame__logo {
+	width: 72px;
+	height: 72px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	order: 1;
+}
+
+.frame__logo a {
+	display: block;
+	text-decoration: none;
+	line-height: 0;
+}
+
+.logo-pony {
+	width: 72px;
+	height: 72px;
+	display: block;
+	object-fit: contain;
+	transform-origin: 50% 50%;
+}
+
+/* Global Button Base Class - based on frame__instagram */
+.button {
+	position: static;
+	z-index: 500;
+	padding: var(--button-inner-padding);
+	height: var(--button-height);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: var(--color-text);
+	background: rgba(255, 255, 255, 0.35);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	box-sizing: border-box;
+	font-family: inherit;
+	font-size: var(--font-size-desktop);
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: var(--body-letter-spacing-desktop);
+}
+
+/* Nav active: stronger frosted glass (backdrop blur), subtle inset depth — text stays sharp */
+.frame__top-nav-right .button.button--nav-active,
+.nav-overlay-buttons .button.button--nav-active {
+	background: rgba(255, 255, 255, 0.55);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(30px);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.45),
+		inset 0 -1px 2px rgba(0, 0, 0, 0.07);
+}
+
+.frame__top-nav-right .button.button--nav-active > a::before,
+.nav-overlay-buttons .button.button--nav-active > a::before {
+	transform: scaleX(1);
+	opacity: 0.9;
+}
+
+.shows-nav-item.shows-nav-item--active {
+	background: rgba(255, 255, 255, 0.55);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.45),
+		inset 0 -1px 2px rgba(0, 0, 0, 0.07);
+}
+
+.shows-nav-item.shows-nav-item--active .shows-nav-link::before {
+	transform: scaleX(1);
+	opacity: 0.9;
+}
+
+/* Global Button Link Styling */
+.button a,
+.button-link,
+.shows-nav-link {
+	text-decoration: none;
+	color: var(--color-text);
+	white-space: nowrap;
+	overflow: visible;
+	position: relative;
+	display: inline-block;
+	line-height: 1;
+	letter-spacing: inherit;
+}
+
+.button a::before,
+.button-link::before,
+.shows-nav-link::before {
+	content: '';
+	height: 1px;
+	width: 100%;
+	background: currentColor;
+	position: absolute;
+	top: 110%;
+	left: 0;
+	transition: transform 0.3s;
+	transform-origin: 0% 50%;
+	transform: scaleX(0); /* Hidden by default */
+}
+
+.button a:hover::before,
+.button-link:hover::before,
+.shows-nav-link:hover::before {
+	transform: scaleX(1); /* Visible on hover */
+	transform-origin: 0% 50%;
+}
+
+/* Shows Navigation - now part of top nav */
+.frame__shows-nav {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 10px;
+	flex: 1;
+	min-width: 0;
+	order: 2;
+}
+
+/* Back button - positioned directly after logo on subpages */
+.frame__back.button {
+	position: static;
+	order: 2;
+	flex-shrink: 0;
+}
+
+.shows-nav-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: flex-start;
+}
+
+.shows-nav-item {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	height: var(--button-height);
+	padding: var(--button-inner-padding);
+	background: rgba(255, 255, 255, 0.35);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	box-sizing: border-box;
+	letter-spacing: var(--body-letter-spacing-desktop);
+}
+
+.shows-nav-link {
+	text-decoration: none;
+	color: var(--color-text);
+	white-space: nowrap;
+	overflow: visible;
+	position: relative;
+	display: inline-block;
+	line-height: 1;
+	letter-spacing: inherit;
+}
+
+.shows-nav-link:hover {
+	text-decoration: none;
+}
+
+.shows-nav-empty {
+	font-size: var(--font-size-desktop);
+	text-transform: uppercase;
+	letter-spacing: var(--body-letter-spacing-desktop);
+	opacity: 0.7;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.grid__item {
+    height: 100vh; 
+    place-items: center;
+    will-change: transform;
+    display: grid;
+    overflow: hidden;
+}
+
+.grid__item-inner {
+	display: grid;
+	gap: 1rem;
+	place-items: center;
+	text-align: center;
+}
+
+.grid__item--stack {
+	display: grid;
+	gap: 2rem;
+	grid-template-rows: 1fr auto;
+}
+
+/* GOOD: Stable logo setup — mobile fills viewport, smooth scroll preserved */
+.grid__item-logo {
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	max-width: none;
+	display: block;
+	filter: blur(5px);
+	color: #ccc;
+}
+
+.grid__item-logo path {
+	fill: #ccc;
+}
+
+.grid__item-img {
+	background-size: cover;
+    background-position: 50% 50%;
+	height: 70vh;
+	aspect-ratio: 1.5;
+}
+
+.grid__item-text {
+	margin: 0;
+}
+
+.credits {
+	margin: 0 0 1.5rem;
+	font-size: var(--font-size-desktop);
+	letter-spacing: 0.25em;
+    word-spacing: 0.75em;
+	font-weight: normal;
+	text-align: center;
+}
+
+
+/* Fixed info bars container */
+.trost-info-container {
+	position: fixed;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	z-index: 500;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: calc(100% - 2rem);
+	box-sizing: border-box;
+	/* Anchor to bottom, expand downward */
+	align-items: flex-start;
+	transform-origin: bottom center;
+}
+
+.trost-info-container > * {
+	width: 100%;
+}
+
+/* Text Container Base - similar styling to buttons but for text content */
+.text-container {
+	padding: var(--button-inner-padding);
+	text-align: left;
+	color: var(--color-text);
+	background: rgba(255, 255, 255, 0.35);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	box-sizing: border-box;
+	min-height: var(--button-height);
+	display: block;
+	font-family: Helvetica, Arial, sans-serif;
+	width: 100%;
+}
+
+/* Shows info bar */
+.trost-shows-info {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+/* Shows visits info bar */
+.trost-shows-visits {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	line-height: var(--body-line-height-desktop);
+	letter-spacing: var(--body-letter-spacing-desktop);
+	white-space: normal;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	word-spacing: normal;
+}
+
+/* Shows details text */
+.trost-shows-details,
+.trost-shows-info .trost-shows-details,
+.text-container .trost-shows-details {
+	font-family: "Times New Roman", Times, serif !important;
+	font-size: var(--headline-font-size-desktop);
+	line-height: var(--headline-line-height-desktop);
+	letter-spacing: var(--headline-letter-spacing);
+	margin-top: 0.5rem;
+	text-transform: none;
+	font-weight: normal;
+	word-spacing: normal;
+	display: inline-block;
+}
+
+/* Fixed about info bar */
+.trost-about-info {
+	position: relative;
+}
+
+/* Info page main */
+.info-page-main {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Info page container */
+.info-page-container {
+	position: relative;
+	z-index: 100;
+	padding: 0 1rem;
+	margin: 0;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: auto;
+	padding-bottom: 1rem;
+}
+
+.info-page-content {
+	width: 100%;
+	max-width: 100%;
+}
+
+.info-page-content .trost-about-content {
+	font-size: var(--font-size-desktop);
+	line-height: var(--body-line-height-desktop);
+	color: var(--color-text);
+	text-transform: uppercase;
+	font-weight: normal;
+	letter-spacing: var(--body-letter-spacing-desktop);
+	word-spacing: 0.08em;
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+/* INFO Button - styled like the old details summary */
+.trost-about-button {
+	width: 100%;
+	padding: var(--button-inner-padding);
+	text-align: left;
+	color: var(--color-text);
+	background: rgba(255, 255, 255, 0.35);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	box-sizing: border-box;
+	height: var(--button-height);
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: inherit;
+	border: none;
+	cursor: pointer;
+	font-size: var(--font-size-desktop);
+	text-transform: uppercase;
+	letter-spacing: var(--body-letter-spacing-desktop);
+	font-weight: normal;
+	line-height: 1;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.trost-about-button:hover {
+	opacity: 0.9;
+}
+
+.trost-about-button .trost-about-label {
+	flex-shrink: 0;
+}
+
+.trost-about-button .trost-about-line {
+	flex: 1;
+	height: 1px;
+	background: currentColor;
+	opacity: 0.3;
+}
+
+.trost-about-button .trost-about-toggle {
+	flex-shrink: 0;
+}
+
+/* Collapsible details styling */
+.trost-about-collapsible {
+	width: 100%;
+}
+
+.trost-about-collapsible summary {
+	list-style: none;
+	cursor: pointer;
+}
+
+.trost-about-collapsible summary::-webkit-details-marker {
+	display: none;
+}
+
+.trost-about-content {
+	font-size: var(--font-size-desktop);
+	line-height: var(--body-line-height-desktop);
+	color: var(--color-text);
+	text-transform: uppercase;
+	font-weight: normal;
+	letter-spacing: var(--body-letter-spacing-desktop);
+	word-spacing: 0.08em;
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: var(--button-inner-padding);
+	padding-top: 0;
+}
+
+/* Fixed bottom info bar */
+.trost-fixed-info {
+	position: relative;
+}
+
+/* Tighter than generic .text-container: nav buttons read shorter; less padding centers copy optically */
+.trost-fixed-info.text-container {
+	padding: 11px 12px 7px 12px;
+	min-height: 0;
+	display: flow-root;
+}
+
+@keyframes trost-year-spectrum {
+	from {
+		filter: hue-rotate(0deg);
+	}
+	to {
+		filter: hue-rotate(360deg);
+	}
+}
+
+/* Custom 3D spectrum ball cursor (desktop / fine pointer) */
+html.trost-custom-cursor,
+html.trost-custom-cursor body,
+html.trost-custom-cursor a,
+html.trost-custom-cursor button,
+html.trost-custom-cursor .button,
+html.trost-custom-cursor summary,
+html.trost-custom-cursor label[for],
+html.trost-custom-cursor input,
+html.trost-custom-cursor textarea,
+html.trost-custom-cursor select {
+	cursor: none;
+}
+
+html.trost-custom-cursor input[type="text"],
+html.trost-custom-cursor input[type="email"],
+html.trost-custom-cursor input[type="search"],
+html.trost-custom-cursor input[type="password"],
+html.trost-custom-cursor textarea {
+	cursor: text;
+}
+
+.trost-cursor {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	pointer-events: none;
+	will-change: transform;
+	transition: opacity 0.2s ease;
+}
+
+.trost-cursor--hidden {
+	opacity: 0;
+}
+
+.trost-cursor__ball {
+	position: relative;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	transform: scale(1);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	/* Tighter shadow, dropped lower + darker so it reads clear “floating” distance */
+	box-shadow:
+		0 4px 5px rgba(0, 0, 0, 0.32),
+		0 14px 18px rgba(0, 0, 0, 0.28);
+}
+
+.trost-cursor--hover .trost-cursor__ball {
+	transform: scale(1.28);
+	box-shadow:
+		0 5px 6px rgba(0, 0, 0, 0.36),
+		0 18px 22px rgba(0, 0, 0, 0.3);
+}
+
+.trost-cursor__color,
+.trost-cursor__shade,
+.trost-cursor__shine {
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+/* Base hue — same spectrum cycle as .trost-current-year */
+.trost-cursor__color {
+	background:
+		radial-gradient(circle at 38% 32%, hsl(330, 88%, 68%) 0%, transparent 42%),
+		radial-gradient(circle at 62% 72%, hsl(330, 92%, 28%) 0%, hsl(330, 92%, 42%) 100%);
+	animation: trost-year-spectrum 16s linear infinite;
+}
+
+/* Neutral highlight + shadow layers (not hue-shifted) */
+.trost-cursor__shine {
+	background: radial-gradient(
+		circle at 28% 24%,
+		rgba(255, 255, 255, 0.92) 0%,
+		rgba(255, 255, 255, 0.35) 18%,
+		transparent 48%
+	);
+	mix-blend-mode: screen;
+}
+
+.trost-cursor__shade {
+	background: radial-gradient(
+		circle at 72% 78%,
+		rgba(0, 0, 0, 0.55) 0%,
+		rgba(0, 0, 0, 0.15) 28%,
+		transparent 52%
+	);
+	mix-blend-mode: multiply;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.trost-cursor__color {
+		animation: none;
+		filter: none;
+	}
+}
+
+/* Year badge: wide shallow ellipse (ref), thick stroke, light gray fill; float wraps copy */
+.text-container .trost-current-year,
+.trost-fixed-info.text-container .trost-current-year {
+	float: right;
+	box-sizing: border-box;
+	margin-left: 0.65em;
+	/* Float aligns to line box top; nudge up so numerals meet Helvetica cap/baseline rhythm */
+	margin-top: -3px;
+	/* Elliptical corners: large rx vs ry in em (oval), not % of width (avoids side clipping) */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-block: 0.12em;
+	padding-inline: 0.7em;
+	font-family: "Times New Roman", Times, serif !important;
+	font-size: 1.35em;
+	line-height: 1;
+	color: hsl(330, 92%, 46%);
+	border: 1.5px solid currentColor;
+	border-radius: 1.45em / 0.52em;
+	animation: trost-year-spectrum 16s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.text-container .trost-current-year,
+	.trost-fixed-info.text-container .trost-current-year {
+		animation: none;
+		filter: none;
+		color: var(--color-text);
+	}
+}
+
+/* Link styling for text containers - make links flow naturally with text */
+.trost-fixed-info a,
+.trost-about-info a {
+	color: var(--color-text);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
+	transition: opacity 0.3s ease;
+	display: inline !important;
+	white-space: normal;
+	margin: 0 !important;
+	padding: 0 !important;
+	position: static !important;
+	line-height: inherit;
+	vertical-align: baseline;
+	text-transform: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+}
+
+.trost-fixed-info a:hover,
+.trost-about-info a:hover {
+	opacity: 0.7;
+}
+
+/* First two links in the fixed-info bar (the two artist names) are set in Times */
+.trost-fixed-info a:nth-of-type(-n+2) {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 1.15em;
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: -0.07em !important;
+}
+
+/* Ensure text flows naturally in text containers */
+.trost-fixed-info,
+.trost-about-info,
+.trost-shows-info,
+.trost-shows-visits {
+	white-space: normal;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+@media screen and (min-width: 53em) {
+	/* Desktop: top nav container handles positioning */
+	.frame__top-nav {
+		justify-content: space-between;
+	}
+	
+	.frame__logo {
+		width: 72px;
+		height: 72px;
+	}
+	/* GOOD: Desktop logo sizing — full width, keeps original spacing */
+	.grid__item-logo {
+		padding: 3rem 0 0;
+		width: 100%;
+		height: 100vh; /* ensure no top slice when using meet */
+		max-height: 100vh;
+		max-width: 100%;
+		display: block;
+		filter: blur(5px);
+		color: #CCC;
+	}
+	
+	.grid__item-logo path {
+		fill: #CCC;
+	}
+	.credits {
+		font-size: 1.4vw;
+	}
+	
+	/* Desktop/iPad: stretch text full width with variable spacing */
+	.trost-shows-info {
+		white-space: normal;
+		letter-spacing: var(--body-letter-spacing-desktop);
+		word-spacing: 0.08em;
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: var(--font-size-desktop);
+		width: 33vw;
+		max-width: 33%;
+		align-self: flex-start;
+	}
+	
+	.trost-shows-visits {
+		white-space: normal;
+		letter-spacing: var(--body-letter-spacing-desktop);
+		word-spacing: normal;
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: var(--font-size-desktop);
+		width: 33vw;
+		max-width: 33%;
+		align-self: flex-start;
+	}
+	
+	.trost-about-info {
+		white-space: normal;
+		letter-spacing: var(--body-letter-spacing-desktop);
+		word-spacing: 0.08em;
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: var(--font-size-desktop);
+		line-height: var(--body-line-height-desktop);
+	}
+	
+	
+	.trost-fixed-info {
+		white-space: normal;
+		letter-spacing: var(--body-letter-spacing-desktop);
+		word-spacing: 0.08em;
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: var(--font-size-desktop);
+		line-height: var(--body-line-height-desktop);
+	}
+	
+	.trost-fixed-info a,
+	.trost-about-info a {
+		letter-spacing: inherit !important;
+		word-spacing: inherit !important;
+		display: inline !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		position: static !important;
+		line-height: inherit;
+		vertical-align: baseline;
+	}
+	
+}
+
+/* Large desktop screens */
+@media screen and (min-width: 80em) {
+	.trost-shows-info {
+		letter-spacing: var(--body-letter-spacing-large);
+		word-spacing: 0.12em;
+		font-size: var(--font-size-desktop);
+	}
+	
+	.trost-shows-visits {
+		letter-spacing: var(--body-letter-spacing-large);
+		word-spacing: normal;
+		font-size: var(--font-size-desktop);
+	}
+	
+	.trost-about-info {
+		letter-spacing: var(--body-letter-spacing-large);
+		word-spacing: 0.12em;
+		font-size: var(--font-size-desktop);
+	}
+	
+	.trost-fixed-info {
+		letter-spacing: var(--body-letter-spacing-large);
+		word-spacing: 0.12em;
+		font-size: var(--font-size-desktop);
+	}
+	
+}
+
+/* Extra large screens */
+@media screen and (min-width: 120em) {
+	.trost-shows-info {
+		letter-spacing: var(--body-letter-spacing-extra-large);
+		word-spacing: 0.18em;
+		font-size: var(--font-size-desktop);
+	}
+	
+	.trost-shows-visits {
+		letter-spacing: var(--body-letter-spacing-extra-large);
+		word-spacing: normal;
+		font-size: var(--font-size-desktop);
+	}
+	
+	.trost-about-info {
+		letter-spacing: var(--body-letter-spacing-extra-large);
+		word-spacing: 0.18em;
+		font-size: var(--font-size-desktop);
+	}
+	
+	.trost-fixed-info {
+		letter-spacing: var(--body-letter-spacing-extra-large);
+		word-spacing: 0.18em;
+		font-size: var(--font-size-desktop);
+	}
+	
+}
+
+/* Mobile: stack navigation divs vertically */
+@media screen and (max-width: 52.99em) {
+	.frame__top-nav {
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 10px;
+		right: var(--nav-inset);
+		flex-wrap: wrap;
+	}
+	
+	.frame__logo {
+		width: auto;
+		height: 72px;
+		justify-content: flex-start;
+		align-items: flex-start;
+		order: 1;
+		flex-shrink: 0;
+	}
+	
+	.frame__top-nav-right {
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+		margin-left: auto;
+		order: 2;
+		align-items: flex-start;
+	}
+	
+	/* Instagram, Info, Address - aligned to top, same as logo */
+	.frame__top-nav-right .frame__instagram.button,
+	.frame__top-nav-right .frame__info.button,
+	.frame__top-nav-right .frame__address.button {
+		width: auto;
+		text-align: center;
+		font-size: var(--font-size-mobile);
+		margin: 0;
+		height: var(--button-height);
+		align-self: flex-start;
+	}
+
+	/* Index mobile: header bar = logo + burger only; rest in overlay */
+	.page-index .frame__shows-nav,
+	.page-index .frame__top-nav-right {
+		display: none !important;
+	}
+
+	.page-index .frame__burger {
+		display: flex;
+		order: 2;
+		margin-left: auto;
+		align-items: center;
+		align-self: flex-start;
+	}
+
+	.page-index .frame__burger .nav-overlay-toggle {
+		padding: var(--button-inner-padding);
+		min-height: var(--button-height);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-text);
+	}
+
+	/* Nav overlay: full viewport height, covers whole site; logo + burger stay on top */
+	.nav-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		background: #e5e5e5;
+		padding: 0 var(--nav-inset) var(--nav-inset) var(--nav-inset);
+		overflow-y: auto;
+		display: none;
+		flex-direction: column;
+	}
+
+	body.nav-overlay-open .nav-overlay {
+		display: flex;
+	}
+
+	/* Logo and burger above the overlay when open */
+	body.nav-overlay-open .frame__logo,
+	body.nav-overlay-open .frame__burger {
+		position: relative;
+		z-index: 10;
+	}
+
+	.nav-overlay-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		flex: 1;
+		padding-top: calc(var(--nav-inset) + 72px + 37.5px);
+	}
+
+	.nav-overlay-shows .shows-nav-list {
+		width: 100%;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.nav-overlay-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: auto;
+	}
+
+	.nav-overlay-footer {
+		padding-top: 0;
+	}
+
+	/* When overlay is open: hide main content, bottom info, lock body scroll */
+	body.nav-overlay-open .grid {
+		display: none;
+	}
+
+	body.nav-overlay-open .trost-info-container {
+		display: none;
+	}
+
+	body.nav-overlay-open {
+		overflow: hidden;
+	}
+	
+	/* Show mobile text, hide desktop text */
+	.instagram-text-desktop,
+	.address-text-desktop,
+	.back-text-desktop,
+	.info-text-desktop {
+		display: none;
+	}
+	
+	.instagram-text-mobile,
+	.address-text-mobile,
+	.back-text-mobile,
+	.info-text-mobile {
+		display: inline;
+	}
+	
+	/* Back button - visible on mobile, directly after logo, aligned to top */
+	.frame__back.button {
+		width: auto;
+		text-align: center;
+		font-size: var(--font-size-mobile);
+		margin: 0;
+		height: var(--button-height);
+		order: 2;
+		margin-left: 10px;
+		flex-shrink: 0;
+		align-self: flex-start;
+	}
+	
+	/* Shows navigation - full width blocks below header */
+	.frame__shows-nav {
+		width: 100%;
+		order: 4;
+		margin-top: 1rem;
+		position: relative;
+		top: auto;
+		left: 0;
+		right: 0;
+		flex-basis: 100%;
+	}
+	
+	.shows-nav-list {
+		width: 100%;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	
+	.shows-nav-item {
+		width: auto;
+		height: auto;
+		min-height: var(--button-height);
+	}
+	
+	.shows-nav-link {
+		font-size: var(--font-size-mobile);
+		width: 100%;
+		text-align: left;
+		display: block;
+		letter-spacing: var(--body-letter-spacing-mobile);
+		line-height: var(--body-line-height-mobile);
+		white-space: normal;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+	
+	/* Shows nav items fit text width */
+	.shows-nav-item {
+		width: auto;
+		box-sizing: border-box;
+	}
+	
+	
+	.trost-shows-info {
+		white-space: normal;
+		line-height: var(--body-line-height-mobile);
+		letter-spacing: var(--body-letter-spacing-mobile);
+		word-spacing: 0.08em;
+		text-transform: uppercase;
+		font-size: var(--font-size-mobile);
+	}
+	
+	.trost-shows-visits {
+		line-height: var(--body-line-height-mobile);
+		letter-spacing: var(--body-letter-spacing-mobile);
+		word-spacing: normal;
+		text-transform: uppercase;
+		font-size: var(--font-size-mobile);
+	}
+	
+	.trost-shows-details,
+	.trost-shows-info .trost-shows-details,
+	.text-container .trost-shows-details {
+		font-size: var(--headline-font-size-mobile);
+		font-weight: normal;
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		line-height: var(--headline-line-height-mobile);
+		letter-spacing: var(--headline-letter-spacing);
+		white-space: normal;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+	
+	.trost-about-info {
+		white-space: normal;
+		line-height: var(--body-line-height-mobile);
+		letter-spacing: var(--body-letter-spacing-mobile);
+		word-spacing: 0.08em;
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: var(--font-size-mobile);
+	}
+	
+	/* Mobile INFO button */
+	.trost-about-button {
+		font-size: var(--font-size-mobile);
+	}
+	
+	.trost-about-content {
+		font-size: var(--font-size-mobile);
+	}
+	
+	.info-page-content .trost-about-content {
+		font-size: var(--font-size-mobile);
+	}
+	
+	.trost-fixed-info {
+		white-space: normal;
+		line-height: var(--body-line-height-mobile);
+		letter-spacing: var(--body-letter-spacing-mobile);
+		word-spacing: 0.08em;
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: var(--font-size-mobile);
+	}
+	
+	.trost-fixed-info a,
+	.trost-about-info a {
+		letter-spacing: inherit !important;
+		word-spacing: inherit !important;
+		display: inline !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		position: static !important;
+		line-height: inherit;
+		vertical-align: baseline;
+	}
+	
+}

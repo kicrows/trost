@@ -1,0 +1,25 @@
+# Exhibition Info - Format: one item per line
+# Leave empty if not needed
+# Lines starting with # are comments
+# Links: Use any label name you want (format: link: Name|URL)
+# You can have 1-3 links (or more), each with its own custom label
+
+headline:Doubled Presence in a Disembodied Space
+date:11 12 2025 — 23 01 2026
+
+artists:
+Artists: Céline Struger, Sofiia Yesakova, Anzhelika Palyvoda 
+
+curation: Markus Sworcik, René Stiegler
+
+text:
+The exhibition “Doubled Presence in a Disembodied Space” records a state in which form and matter cease to be obvious carriers of meaning. Here, the object exists in material and symbolic registers, the body and its absence intertwine.The title refers to Gilles Deleuze’s philosophy of difference and repetition, where every manifestation of reality contains its own shadow and vibration. Doubled presence records a continuous oscillation between the visible and the vanishing. Disembodied space becomes a place where the body is preserved as a trace. Material behaves like memory, and the image functions as a symptom. This logic recalls reliquaries and iconographic systems, where the physical presence of a saint’s body fragment confirms and replaces sanctity.Duality manifests in the structure of the exhibition’s visual language. Strict forms conceal emotional tension, turning expression into restraint. Light, material, and line function as instruments of dramatization. Lines are thin, light is unstable, and a resulting instability emerges. The motif of decay and erosion resonates with Georges Bataille’s philosophy, where destruction is understood as a way for matter to return to its intensity. Bone tissue, fragments, and traces become a form of presence that has outlived the body. Visual references to religious art create a sense of sacred repetition. Contemporary work enters into dialogue with iconological memory. The reliquary, enclosing a fragment of the body in ideal form, becomes a metaphor for the exhibition: the physical and the metaphysical are held in a state of tense equilibrium.The exhibition space functions as a laboratory for observing material and visual processes, for seeing how matter exceeds itself and the image preserves the moment of destruction.Doubled presence appears as a mode of existence: to be and vanish simultaneously, to remain a body while becoming an image.
+
+The exhibition "Doubled presence in a disembodied space" highlights the seen and the unseen, the new and the already existing. Dualities appear in pairings and mirroring, ex-pressing the uncanny, questioning protagonists and antagonists while demanding organization in chaos. The work of Céline Struger, Anzhelika Palyvoda & Sofiia Yesakova invokes fragile memories that linger in the space, questioning decay, reconstruction and being in ways we cannot fully anticipate. (Note from curators Markus Sworcik & René Stiegler)
+
+
+link:Céline Struger|https://www.celinestruger.com/
+link:Sofiia Yesakova|https://sofiiayesakova.com/
+link:Anzhelika Palyvoda|https://www.instagram.com/palyvoda_anzhelika/
+
+photography: Tom Biela|https://tombiela.com

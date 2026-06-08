@@ -1,0 +1,8 @@
+# Shows list - Format: name|folder|date
+# One show per line (all 3 parts required — entries with fewer are skipped)
+# Shows at the bottom are most current (appear first in navigation)
+# Example: Half Dry, Half Memory|Half Dry Half Memory|2025-11-09
+
+Half Dry, Half Memory|half-dry-half-memory|2025-11-09
+Doubled presence in a disembodied space|doubled-presence-in-a-disembodied-space|2025-12-11
+Any Justice Needs a Lie|any-justice-needs-a-lie|2026-05-10

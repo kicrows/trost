@@ -1,0 +1,49 @@
+# Images list - Format: filename|caption
+# One image per line
+# Leave caption empty if no caption needed
+# Example: 01_image.jpg|This is the caption
+
+01_Trost_HalfDry-HalfMemory_004-1.jpg|Installation view, Markus Sworcik, 'Hovering radius, no fix', Aluminium, Chalk, Wax, Fabric, Epoxy sand, PLA, Silicon powder, 48 x 41 x 7.5 cm, 2025, Jan Brauer, 'Phantom - Die Chimäre Landschaft', Mixed media on cardboard, 57 x 40 cm, 2025, Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”), Plastic, Compass, 27.5 x 21.5 x 3.5 cm, 2025 
+02_Trost_HalfDry-HalfMemory_008-1.jpg|Installation view, Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”), Plastic, Compass, 27.5 x 21.5 x 3.5 cm, 2025, Jakob Braito, Indie clip: untitled 01 + 02, Stainless steel, 90 x 30 x 10 cm, 2023 
+
+03_Trost_HalfDry-HalfMemory_010-1.jpg|Julian Siffert, 'placeholder (o o o o o)', Steel, Aluminum, MDF, Bells, Loudspeaker, MP3 Player, Amplifier, 151 x 17 x 16 cm, 2023/25 
+
+04_Trost_HalfDry-HalfMemory_012-1.jpg|Maxine Weiss, 'Paraconsistent', Agave, 190.7 x 42 x 17 cm, 2024  
+
+05_Trost_HalfDry-HalfMemory_014-1.jpg|Installation view, René Stiegler, 'Anxiety Rash', Fork stanchions, Steel, PLA, Epoxy, Wax, Plaster, 140 x 21 x 21 cm, 2023, Ömer Faruk Kaplan, 'Skins', Floatglas, 160 x 19.5 x 4 cm, 2025, Ömer Faruk Kaplan, 'Skins', Floatglas, 80 x 24.5 x 3 cm, 2024, Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”) Plastic, Compass, 10 x 7 x 7 cm, 11 x 7.7 x 7.7 cm, 2025, Ilinca Fechete, 'NOST - ALGAE, ALGIA', Super 8 film, Re-Stabilized, 15:55 min, 2022 – 2023 
+
+06_Trost_HalfDry-HalfMemory_090-1.jpg|Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”), Plastic, Compass, 10 x 7 x 7 cm, 2025 
+
+07_Trost_HalfDry-HalfMemory_022-1.jpg|Jan Brauer, 'Phantom - Die Chimäre Landschaft', Mixed media on cardboard, 57 x 40 cm, 2025  
+
+07_Trost_HalfDry-HalfMemory_023-1.jpg|Markus Sworcik, 'Hovering radius, no fix', Aluminium, Chalk, Wax, Fabric, Epoxy sand, PLA, Silicon powder, 48 x 41 x 7.5 cm, 2025  
+
+08_Trost_HalfDry-HalfMemory_085-1.jpg|Julian Siffert, 'placeholder (o o o o o)', Steel, Aluminum, MDF, Bells, Loudspeaker, MP3 Player, Amplifier, 151 x 17 x 16 cm, 2023/25 
+
+09_Trost_HalfDry-HalfMemory_017-1.jpg|Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”), Plastic, Compass, 27.5 x 21.5 x 3.5 cm, 2025 
+
+10_Trost_HalfDry-HalfMemory_019-1.jpg|Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”), Plastic, Compass, 27.5 x 21.5 x 3.5 cm, 2025 
+
+11_Trost_HalfDry-HalfMemory_034-1.jpg|Jakob Braito, 'Indie clip: untitled 01 + 02', Stainless steel, 90 x 30 x 10 cm, 2023 
+
+12_Trost_HalfDry-HalfMemory_050-1.jpg|Maxine Weiss, 'Paraconsistent', Agave, 190.7 x 42 x 17 cm, 2024  
+
+13_Trost_HalfDry-HalfMemory_055-1.jpg|Ilinca Fechete, 'NOST - ALGAE, ALGIA', Super 8 film, Re-Stabilized, 15:55 min, 2022 – 2023  
+
+14_Trost_HalfDry-HalfMemory_076-1.jpg|Markus Sworcik, 'Hovering radius, no fix', Aluminium, Chalk, Wax, Fabric, Epoxy sand, PLA, Silicon powder, 48 x 41 x 7.5 cm, 2025  
+
+15_Trost_HalfDry-HalfMemory_003-1.jpg|Installation view, Ömer Faruk Kaplan, 'Skins', Floatglas, 80 x 24.5 x 3 cm, 2024, Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”), Plastic, Compass, 10 x 7 x 7 cm, 11 x 7.7 x 7.7 cm, 2025
+
+
+16_Trost_HalfDry-HalfMemory_063-1.jpg|Ömer Faruk Kaplan, 'Skins', Floatglas, 160 x 19.5 x 4 cm, 2025
+
+
+17_Trost_HalfDry-HalfMemory_031-1.jpg|Installation view, René Stiegler, 'Anxiety Rash', Fork stanchions, Steel, PLA, Epoxy, Wax, Plaster, 140 x 21 x 21 cm, 2023, Ömer Faruk Kaplan, 'Skins', Floatglas, 160 x 19.5 x 4 cm, 2025, Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”), Plastic, Compass, 10 x 7 x 7 cm, 11 x 7.7 x 7.7 cm, 2025
+
+
+18_Trost_HalfDry-HalfMemory_032-1.jpg|Installation view, René Stiegler, 'Anxiety Rash', Fork stanchions, Steel, PLA, Epoxy, Wax, Plaster, 140 x 21 x 21 cm, 2023, Ömer Faruk Kaplan, 'Skins', Floatglas, 160 x 19.5 x 4 cm, 2025, Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”), Plastic, Compass, 10 x 7 x 7 cm, 11 x 7.7 x 7.7 cm, 2025
+
+
+19_Trost_HalfDry-HalfMemory_094-1.jpg|Yixuan Hu, 'ever migrate, ever escape', (“而你心中的鸟群，时时要迁徙，时时要逃避”), Plastic, Compass, 10 x 7 x 7 cm, 11 x 7.7 x 7.7 cm, 2025 
+
+

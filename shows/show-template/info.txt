@@ -1,0 +1,28 @@
+# Exhibition Info - Format: one item per line
+# Leave empty if not needed
+# Lines starting with # are comments
+# Links: Use any label name you want (format: link: Name|URL)
+# You can have 1-3 links (or more), each with its own custom label
+
+headline:Half Dry, Half Memory
+date:12 07 — 02 08 2025
+
+artists:
+Artists: Julian Siffert, Yixuan Hu, Jan Brauer, Maxine Weiss, Jakob Braito, Ömer Faruk Kaplan, Ilinca Fechete, René Stiegler, Markus Sworcik 
+
+curation: Markus Sworcik, René Stiegler 
+
+text:
+With Half Dry, Half Memory, nine artists traced the unstable ground where memory and material overlap. Objects, gestures, and spatial encounters did not align into a single form but shifted continually, forming temporary constellations of presence and disappearance. The exhibition circled the tension between what holds and what escapes: things that seemed to return, only to drift again; fragments that carried weight while also fading into residue. There was a quiet awareness of the times we live in, where symbols of home feel bent or unclear, forms no longer easily recognizable, where something foreign yet strangely familiar begins to take up space — like the remnants of a system still present, but only in fragments. This sense did not dominate, but it hovered, shaping the atmosphere in which the works unfolded. Instead of offering closure, the show opened as a process — half formed, half dissolving — where the textures of the everyday and the dissonance of memory could be sensed without arriving at certainty. Half Dry, Half Memory unfolded as a field of fragments and atmospheres, where what remained was less about clarity than about staying with what resists becoming whole.
+
+link:Julian Siffert|https://www.juliansiffert.com/
+link:Yixuan Hu|https://www.instagram.com/a.moro_yixuan/
+link:Jan Brauer|https://janbrauer.de/
+link: Maxine Weiss|https://www.maxine-weiss.com/
+link:Jakob Braito|https://linktr.ee/jakobbraito
+link:Ömer Faruk Kaplan|https://www.oe-kaplan.com/
+link:Ilinca Fechete|https://ilincafechete.com/
+link:René Stiegler|https://renestiegler.com/
+link:Markus Sworcik|https://markussworcik.com/
+
+photography: Tom Biela|https://tombiela.com

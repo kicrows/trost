@@ -1,0 +1,545 @@
+/**
+ * Single Exhibition Gallery Styles
+ * Matches index.html styling but without infinite scrolling
+ */
+
+/* Background styling for show pages */
+body {
+    background-color: #e5e5e5; /* Light grey background */
+    background-image: url('../img/logo-trost-filter-01.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e5e5e5; /* Light grey background */
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/logo-trost-filter-01.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.3; /* 30% opacity */
+    z-index: -1;
+}
+
+/* Back button positioned automatically by flexbox in .frame__top-nav */
+
+/* Exhibition Gallery Container */
+.exhibition-gallery-container {
+    position: relative;
+    z-index: 100;
+    padding: calc(1rem + 72px + 1rem + 3.5rem + 4rem) 0 4rem 0;
+    margin: 0 1rem;
+    width: calc(100% - 2rem);
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.exhibition-title {
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    margin: 0 0 0.4rem 0;
+    color: var(--color-text);
+    font-family: "Times New Roman", Times, serif !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.exhibition-title-text {
+    font-family: "Times New Roman", Times, serif !important;
+    font-size: var(--headline-font-size-desktop);
+    line-height: var(--headline-line-height-desktop);
+    letter-spacing: var(--headline-letter-spacing);
+    flex: 1;
+    min-width: 0;
+    display: inline-block;
+}
+
+.exhibition-date {
+    font-size: var(--headline-font-size-desktop);
+    line-height: var(--headline-line-height-desktop);
+    letter-spacing: var(--headline-letter-spacing);
+    font-weight: normal;
+    text-transform: none;
+    color: var(--color-text);
+    font-family: "Times New Roman", Times, serif !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+/* Exhibition Description */
+.exhibition-description {
+    padding: var(--button-inner-padding);
+    text-align: left;
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: var(--font-size-desktop);
+    line-height: var(--body-line-height-desktop);
+    text-transform: none;
+    font-weight: normal;
+    letter-spacing: var(--body-letter-spacing-desktop);
+    word-spacing: 0.08em;
+    font-family: inherit;
+}
+
+.exhibition-description p {
+    margin: 0 0 1rem 0;
+    line-height: var(--body-line-height-desktop);
+}
+
+.exhibition-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Artist, Curator, and Photography inside description box (desktop) */
+.exhibition-artist-curator-desktop {
+    margin-bottom: 2rem;
+}
+
+.exhibition-artist-desktop,
+.exhibition-curator-desktop,
+.exhibition-photography-desktop {
+    margin: 0 0 1rem 0;
+    line-height: var(--body-line-height-desktop);
+    font-size: inherit;
+}
+
+/* Artists line: condensed/narrow typography, sized between body and headline */
+.exhibition-artist,
+.exhibition-artist-desktop {
+    font-family: "Arial Narrow", "Helvetica Narrow", "Helvetica Neue Condensed",
+                 "Roboto Condensed", "Liberation Sans Narrow", Arial, Helvetica, sans-serif;
+    font-stretch: condensed;
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    text-transform: uppercase;
+    font-weight: normal;
+    word-spacing: 0.08em;
+    margin: 0 0 1.5rem 0;
+}
+
+@media screen and (min-width: 53em) {
+    .exhibition-artist,
+    .exhibition-artist-desktop {
+        padding-right: 50%;
+    }
+}
+
+.exhibition-artist-desktop:last-child,
+.exhibition-curator-desktop:last-child,
+.exhibition-photography-desktop:last-child {
+    margin-bottom: 0;
+}
+
+.exhibition-photography-desktop a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: opacity 0.3s ease;
+    line-height: var(--body-line-height-desktop);
+}
+
+.exhibition-photography-desktop a:hover {
+    opacity: 0.7;
+}
+
+/* Short descriptions: DESCRIPTION row visible (matches live site); body copy always shown */
+details.exhibition-description-collapsible:not(.exhibition-description--long) {
+    cursor: default;
+}
+
+details.exhibition-description-collapsible:not(.exhibition-description--long) > summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1;
+    margin: 0 0 0.75rem 0;
+}
+
+details.exhibition-description-collapsible:not(.exhibition-description--long) > summary::-webkit-details-marker {
+    display: none;
+}
+
+details.exhibition-description-collapsible:not(.exhibition-description--long) .exhibition-description-toggle {
+    display: none;
+}
+
+details.exhibition-description-collapsible:not(.exhibition-description--long) > .exhibition-description-content {
+    display: block;
+    margin-top: 0;
+}
+
+/* Desktop: enable collapsible behavior for long descriptions */
+details.exhibition-description-collapsible.exhibition-description--long {
+    cursor: pointer;
+}
+
+details.exhibition-description-collapsible.exhibition-description--long:not([open]) {
+    min-height: var(--button-height);
+    line-height: 1;
+}
+
+details.exhibition-description-collapsible.exhibition-description--long > summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1;
+}
+
+details.exhibition-description-collapsible.exhibition-description--long .exhibition-description-label,
+.exhibition-description-label {
+    flex-shrink: 0;
+}
+
+details.exhibition-description-collapsible.exhibition-description--long .exhibition-description-line,
+.exhibition-description-line {
+    flex: 1;
+}
+
+details.exhibition-description-collapsible.exhibition-description--long > summary::-webkit-details-marker {
+    display: none;
+}
+
+details.exhibition-description-collapsible.exhibition-description--long:not([open]) > .exhibition-description-content {
+    display: none;
+}
+
+details.exhibition-description-collapsible.exhibition-description--long > .exhibition-description-content {
+    display: block;
+    margin-top: 0.75rem;
+}
+
+details.exhibition-description-collapsible.exhibition-description--long .exhibition-description-toggle::after {
+    content: '+';
+    flex-shrink: 0;
+}
+
+details.exhibition-description-collapsible.exhibition-description--long[open] .exhibition-description-toggle::after {
+    content: '–';
+}
+
+.exhibition-links {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: baseline;
+    line-height: 1;
+}
+
+.exhibition-links a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: opacity 0.3s ease;
+    font-size: inherit;
+    font-family: inherit;
+    text-transform: none;
+    letter-spacing: var(--body-letter-spacing-desktop);
+    font-weight: normal;
+    line-height: 1;
+    display: inline-block;
+}
+
+.exhibition-links a:hover {
+    opacity: 0.7;
+}
+
+/* Links from info.txt: outside the frosted description box */
+.exhibition-links--below-description {
+    margin-top: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.exhibition-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: start;
+    width: 100%;
+}
+
+.exhibition-figure {
+    margin: 0;
+    display: block;
+}
+
+/* Normal desktop (2-col grid): 2 per row for both */
+.exhibition-figure--portrait {
+    grid-column: span 1;
+}
+
+.exhibition-figure--landscape {
+    grid-column: span 1;
+}
+
+.exhibition-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.exhibition-caption {
+    margin-top: 5px;
+    font-size: var(--font-size-desktop);
+    line-height: var(--body-line-height-desktop);
+    color: var(--color-text);
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: var(--body-letter-spacing-desktop);
+    word-spacing: 0.08em;
+    text-align: left;
+    font-family: inherit;
+}
+
+.exhibition-empty {
+    text-align: center;
+    color: var(--color-text);
+    font-size: var(--font-size-desktop);
+    padding: 2rem;
+    text-transform: uppercase;
+    letter-spacing: var(--body-letter-spacing-desktop);
+}
+
+/* Artist, curator, photography: above frosted panel (all viewports) */
+.exhibition-show-meta {
+    display: block;
+    margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 53em) {
+    .exhibition-show-meta .exhibition-curator,
+    .exhibition-show-meta .exhibition-photography {
+        font-size: var(--font-size-desktop);
+        line-height: var(--body-line-height-desktop);
+        letter-spacing: var(--body-letter-spacing-desktop);
+        word-spacing: 0.08em;
+    }
+
+    .exhibition-show-meta .exhibition-photography a {
+        line-height: var(--body-line-height-desktop);
+    }
+}
+
+.exhibition-curator,
+.exhibition-photography {
+    font-size: var(--font-size-mobile);
+    line-height: var(--body-line-height-mobile);
+    color: var(--color-text);
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: var(--body-letter-spacing-mobile);
+    word-spacing: 0.08em;
+    font-family: inherit;
+    margin-bottom: 1rem;
+}
+
+.exhibition-artist:last-child,
+.exhibition-curator:last-child,
+.exhibition-photography:last-child {
+    margin-bottom: 0;
+}
+
+/* Remove margin from curator when photography follows (mobile) */
+.exhibition-show-meta .exhibition-curator:not(:last-child) {
+    margin-bottom: 0;
+}
+
+.exhibition-photography a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: opacity 0.3s ease;
+    line-height: var(--body-line-height-mobile);
+}
+
+.exhibition-photography a:hover {
+    opacity: 0.7;
+}
+
+/* Hide desktop version on mobile */
+@media screen and (max-width: 52.99em) {
+    .exhibition-artist-curator-desktop {
+        display: none;
+    }
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 52.99em) {
+    /* Back button handled by .frame__top-nav in base.css */
+    
+    .exhibition-gallery-container {
+        padding: calc(1rem + 72px + 1rem + 3.5rem + 4rem) 0 2rem 0;
+        margin: 0 1rem;
+        width: calc(100% - 2rem);
+        box-sizing: border-box;
+    }
+    
+    .exhibition-title {
+        margin-bottom: 0.4rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .exhibition-title-text {
+        font-family: "Times New Roman", Times, serif !important;
+        font-size: var(--headline-font-size-mobile);
+        line-height: var(--headline-line-height-mobile);
+        letter-spacing: var(--headline-letter-spacing);
+        flex: none;
+        min-width: 0;
+        display: block;
+    }
+    
+    .exhibition-date {
+        font-size: var(--headline-font-size-mobile);
+        line-height: var(--headline-line-height-mobile);
+        letter-spacing: var(--headline-letter-spacing);
+        font-family: "Times New Roman", Times, serif !important;
+        flex: none;
+        display: block;
+        white-space: normal;
+    }
+    
+    .exhibition-description {
+        font-size: var(--font-size-mobile);
+        margin-bottom: 1.5rem;
+        line-height: var(--body-line-height-mobile);
+    }
+    
+    .exhibition-description p {
+        line-height: var(--body-line-height-mobile);
+    }
+    
+    /* Mobile collapsible: long descriptions only */
+    details.exhibition-description-collapsible.exhibition-description--long {
+        cursor: pointer;
+    }
+    
+    details.exhibition-description-collapsible.exhibition-description--long:not([open]) {
+        min-height: var(--button-height);
+        line-height: 1;
+    }
+    
+    /* Mobile: hide description body when collapsed (long text only) */
+    details.exhibition-description-collapsible.exhibition-description--long:not([open]) > .exhibition-description-content {
+        display: none;
+    }
+
+    details.exhibition-description-collapsible.exhibition-description--long > summary {
+        list-style: none;
+        display: flex !important;
+        align-items: center;
+        gap: 0.5rem;
+        line-height: 1;
+    }
+    
+    details.exhibition-description-collapsible.exhibition-description--long > summary::-webkit-details-marker {
+        display: none;
+    }
+    
+    .exhibition-description-label {
+        flex-shrink: 0;
+    }
+    
+    .exhibition-description-line {
+        flex: 1;
+    }
+    
+    details.exhibition-description-collapsible.exhibition-description--long .exhibition-description-toggle::after {
+        content: '+';
+        flex-shrink: 0;
+    }
+    
+    details.exhibition-description-collapsible.exhibition-description--long[open] .exhibition-description-toggle::after {
+        content: '–';
+    }
+    
+    .exhibition-description-content {
+        margin-top: 0.75rem;
+    }
+    
+    .exhibition-gallery {
+        gap: 2rem;
+        grid-template-columns: 1fr; /* Single column on mobile */
+        width: 100%;
+    }
+    
+    /* On mobile, all images are single column */
+    .exhibition-figure--portrait,
+    .exhibition-figure--landscape {
+        grid-column: span 1;
+    }
+    
+    .exhibition-caption {
+        font-size: var(--font-size-mobile);
+        margin-top: 5px;
+    }
+    
+    .exhibition-empty {
+        font-size: var(--font-size-mobile);
+    }
+}
+
+/* Big screens > 2560 (160em): landscape 2 per row, portrait 3 per row */
+@media screen and (min-width: 160em) {
+    .exhibition-gallery {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 3rem;
+    }
+    
+    /* Portrait: 3 per row (span 2 of 6); 2 per row when partial */
+    .exhibition-figure--portrait {
+        grid-column: span 2;
+    }
+    
+    /* Landscape: 2 per row (span 3 of 6) */
+    .exhibition-figure--landscape {
+        grid-column: span 3;
+    }
+}
+
+/* Desktop adjustments - back button handled by .frame__top-nav in base.css */
+

@@ -1,0 +1,21 @@
+# Images list - Format: filename|caption
+# One image per line
+# Leave caption empty if no caption needed
+# Example: 01_image.jpg|This is the caption
+
+01-Trostrek-Any-Justice-Needs-A-Lie-002.jpg|Installation View, Any justice needs a lie, Markus Sworcik, Robert di Pauli, 2026
+02-Trostrek-Any-Justice-Needs-A-Lie-V004.jpg|Scott Clifford Evans, Manipulating Currency, Video, 2016
+03-Trostrek-Any-Justice-Needs-A-Lie-008.jpg|Installation View, Any justice needs a lie, Anna Jermolaewa, Solo, Video, 1999, René Stiegler, The best part of pretend is the end, Wood, Epoxy, Steel, PLA, Varnish, Concrete, 2026
+04-Trostrek-Any-Justice-Needs-A-Lie-142.jpg|Installation View, Any justice needs a lie, Markus Sworcik, Anna Jermolaewa, Scott Clifford Evans, 2026
+05-Trostrek-Any-Justice-Needs-A-Lie-102.jpg|René Stiegler, The best part of pretend is the end, Wood, Epoxy, Steel, PLA, Varnish, Concrete, 2026
+06-Trostrek-Any-Justice-Needs-A-Lie-124.jpg|René Stiegler, The best part of pretend is the end, Wood, Epoxy, Steel, PLA, Varnish, Concrete, 2026
+07-Trostrek-Any-Justice-Needs-A-Lie-067.jpg|René Stiegler, The best part of pretend is the end, Wood, Epoxy, Steel, PLA, Varnish, Concrete, 2026
+08-Trostrek-Any-Justice-Needs-A-Lie-121.jpg|Robert di Pauli, Any justice needs a lie, 2026
+09-Trostrek-Any-Justice-Needs-A-Lie-119.jpg|Robert di Pauli, Any justice needs a lie, 2026
+10-Trostrek-Any-Justice-Needs-A-Lie-037.jpg|Markus Sworcik, Faltung (f7), Aluminium, Cardboard, Wood, 2026
+11-Trostrek-Any-Justice-Needs-A-Lie-112.jpg|Markus Sworcik, Faltung (f7), Aluminium, Cardboard, Wood, 2026
+12-Trostrek-Any-Justice-Needs-A-Lie-098.jpg|Markus Sworcik, Faltung (f7), Aluminium, Cardboard, Wood, 2026
+13-Trostrek-Any-Justice-Needs-A-Lie-015.jpg|Markus Sworcik, Faltung (f7), Aluminium, Cardboard, Wood, 2026
+14-Trostrek-Any-Justice-Needs-A-Lie-020.jpg|Markus Sworcik, Faltung (f7), Aluminium, Cardboard, Wood, 2026
+15-Trostrek-Any-Justice-Needs-A-Lie-V001-34.jpg|Imants Daksis, Mersedes Margoit, Robert di Pauli Untitled (Hopeless Case), Video, 2026
+16-Trostrek-Any-Justice-Needs-A-Lie-129.jpg|René Stiegler, The best part of pretend is the end, Wood, Epoxy, Steel, PLA, Varnish, Concrete, 2026
