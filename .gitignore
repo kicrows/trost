@@ -1,7 +1,2 @@
-node_modules
-.cache
-.parcel-cache
-package-lock.json
 .DS_Store
-**/.DS_Store
 _not-used/
