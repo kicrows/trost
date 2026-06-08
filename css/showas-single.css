@@ -176,7 +176,7 @@ body::after {
     opacity: 0.7;
 }
 
-/* Short descriptions: DESCRIPTION row visible (matches live site); body copy always shown */
+/* Short descriptions: INFO row visible (matches live site); body copy always shown */
 details.exhibition-description-collapsible:not(.exhibition-description--long) {
     cursor: default;
 }

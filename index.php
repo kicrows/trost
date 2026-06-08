@@ -11,50 +11,50 @@
 		
 		<!-- Primary Meta Tags -->
 		<title>TROST • Studio, Workspace & Exhibition Venue • Graz</title>
-		<meta name="title" content="TROST • Studio, Workspace & Exhibition Venue • Graz">
+		<meta name="title" content="TROST • Studio, Workspace & Contemporary Exhibition Venue • Graz">
 		<meta name="description" content="TROST is a studio, workspace, and occasional exhibition venue run by René Stiegler and Markus Sworcik in Graz. We show work that doesn't play along - it pulls at the seams, messes with the frame.">
 		<meta name="keywords" content="TROST, art studio, exhibition venue, Graz, René Stiegler, Markus Sworcik, contemporary art, workspace, KUNSTRAUM STEIERMARK">
 		<meta name="author" content="TROST">
 		<meta name="robots" content="index, follow">
 		<meta name="language" content="English">
 		<meta name="revisit-after" content="7 days">
-		
+
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://trost.space/">
-		<meta property="og:title" content="TROST • Studio, Workspace & Exhibition Venue • Graz">
+		<meta property="og:title" content="TROST • Studio, Workspace & Contemporary Exhibition Venue • Graz">
 		<meta property="og:description" content="TROST is a studio, workspace, and occasional exhibition venue run by René Stiegler and Markus Sworcik in Graz. We show work that doesn't play along.">
 		<meta property="og:image" content="https://trost.space/img/logo-trost-01.jpg">
 		<meta property="og:site_name" content="TROST">
 		<meta property="og:locale" content="en_US">
-		
+
 		<!-- Additional SEO -->
 		<meta name="geo.region" content="AT-6">
 		<meta name="geo.placename" content="Graz">
 		<meta name="geo.position" content="47.0707;15.4395">
 		<meta name="ICBM" content="47.0707, 15.4395">
 		<meta name="theme-color" content="#000000">
-		
+
 		<!-- Favicons -->
 		<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
 		<link rel="manifest" href="favicon_io/site.webmanifest">
-		
+
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="https://use.typekit.net/bvo6szq.css">
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
-		
+
 		<!-- Scripts -->
 		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
 	</head>
 	<body class="loading page-index">
 		<main>
-			<?php 
-			$isSubpage = false;
-			$isIndex = true;
-			include __DIR__ . '/includes/nav-top.php'; 
-			?>
+			<?php
+   $isSubpage = false;
+   $isIndex = true;
+   include __DIR__ . "/includes/nav-top.php";
+   ?>
 			<div class="grid">
 				<div class="grid__item grid__item--stack">
 					<svg class="grid__item-logo" width="100%" viewBox="0 0 4831 2000" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block;backface-visibility:hidden;transform:translateZ(0);fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -88,7 +88,9 @@
 			</div>
 			-->
 			<div class="trost-fixed-info text-container">
-				<span class="trost-current-year"><?php echo date('y'); ?></span> TROST is a studio, workspace and occasional exhibition venue run by <a href="https://renestiegler.com" target="_blank">René Stiegler</a> and <a href="https://markussworcik.com" target="_blank">Markus Sworcik</a> in Graz – supported by <a href="https://www.kultur.steiermark.at/" target="_blank"><b>KUNSTRAUM STEIERMARK</b></a> as part of its studio grant program.
+				<span class="trost-current-year"><?php echo date(
+        "y",
+    ); ?></span> TROST is a studio, workspace and occasional exhibition venue run by <a href="https://renestiegler.com" target="_blank">René Stiegler</a> and <a href="https://markussworcik.com" target="_blank">Markus Sworcik</a> in Graz – supported by <a href="https://www.kultur.steiermark.at/" target="_blank"><b>KUNSTRAUM STEIERMARK</b></a> as part of its studio grant program.
 			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>

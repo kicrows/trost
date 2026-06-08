@@ -254,9 +254,9 @@ $isLongDescription = $descriptionLength > 1300;
 					</div>
 				<?php endif; ?>
 				
-				<details class="exhibition-description exhibition-description-collapsible<?php echo $isLongDescription ? ' exhibition-description--long' : ''; ?>" id="exhibition-description">
+				<details class="exhibition-description exhibition-description-collapsible exhibition-description--long" id="exhibition-description">
 					<summary class="exhibition-description-header">
-						<span class="exhibition-description-label">DESCRIPTION</span>
+						<span class="exhibition-description-label">INFO</span>
 						<span class="exhibition-description-line"></span>
 						<span class="exhibition-description-toggle"></span>
 					</summary>
