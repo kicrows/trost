@@ -101,20 +101,10 @@
 		<script>
 		(function() {
 			var btn = document.getElementById('nav-overlay-toggle-btn');
-			var footer = document.getElementById('nav-overlay-footer');
-			var trostFixed = document.querySelector('.trost-fixed-info');
 			if (!btn) return;
 			btn.addEventListener('click', function() {
 				var isOpen = document.body.classList.toggle('nav-overlay-open');
 				btn.setAttribute('aria-expanded', isOpen);
-				if (footer && trostFixed) {
-					if (isOpen) {
-						footer.innerHTML = '';
-						footer.appendChild(trostFixed.cloneNode(true));
-					} else {
-						footer.innerHTML = '';
-					}
-				}
 			});
 		})();
 		</script>

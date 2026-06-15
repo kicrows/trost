@@ -4,7 +4,7 @@
 (function () {
 	'use strict';
 
-	var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+	var finePointer = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 53em)');
 	if (!finePointer.matches) {
 		return;
 	}
@@ -65,9 +65,12 @@
 	finePointer.addEventListener('change', function (event) {
 		if (!event.matches) {
 			root.classList.remove('trost-custom-cursor');
-			cursor.remove();
+			cursor.classList.remove('trost-cursor--hidden', 'trost-cursor--hover');
+			cursor.style.transform = 'translate(-50%, -50%)';
+			visible = true;
 			if (rafId) {
 				window.cancelAnimationFrame(rafId);
+				rafId = null;
 			}
 		}
 	});

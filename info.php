@@ -48,7 +48,7 @@
 		<!-- Scripts -->
 		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
 	</head>
-	<body class="loading">
+	<body class="loading page-info">
 		<main class="info-page-main">
 			<?php 
 			$isSubpage = false;
@@ -74,5 +74,15 @@ trost.spc functions less as a fixed exhibition format and more as a temporary st
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 		<script src="js/index.js"></script>
+		<script>
+		(function() {
+			var btn = document.getElementById('nav-overlay-toggle-btn');
+			if (!btn) return;
+			btn.addEventListener('click', function() {
+				var isOpen = document.body.classList.toggle('nav-overlay-open');
+				btn.setAttribute('aria-expanded', isOpen);
+			});
+		})();
+		</script>
 	</body>
 </html>

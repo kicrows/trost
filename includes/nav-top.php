@@ -75,7 +75,7 @@ if (preg_match('#/shows/([^/]+)/#', $scriptPath, $navPathMatch)) {
 				<span class="back-text-mobile">← BACK</span>
 			</a>
 		</div>
-	<?php else: ?>
+	<?php elseif (! $navInfoActive): ?>
 		<div class="frame__shows-nav" id="shows-nav">
 			<?php if (!empty($shows)): ?>
 				<ul class="shows-nav-list">
@@ -95,6 +95,7 @@ if (preg_match('#/shows/([^/]+)/#', $scriptPath, $navPathMatch)) {
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
+	<?php if (! $isSubpage): ?>
 	<div class="frame__top-nav-right">
 		<div class="frame__info button<?php echo $navInfoActive ? ' button--nav-active' : ''; ?>">
 			<a href="<?php echo $backLink; ?>info.php"<?php echo $navInfoActive ? ' aria-current="page"' : ''; ?>>
@@ -115,7 +116,8 @@ if (preg_match('#/shows/([^/]+)/#', $scriptPath, $navPathMatch)) {
 			</a>
 		</div>
 	</div>
-	<?php if (! $isSubpage && !empty($isIndex)): ?>
+	<?php endif; ?>
+	<?php if (! $isSubpage && (!empty($isIndex) || $navInfoActive)): ?>
 	<div class="frame__burger">
 		<button type="button" class="unbutton nav-overlay-toggle" id="nav-overlay-toggle-btn" aria-expanded="false" aria-label="Open menu">
 			<span class="burger-icon">
@@ -147,8 +149,8 @@ if (preg_match('#/shows/([^/]+)/#', $scriptPath, $navPathMatch)) {
 			<div class="nav-overlay-buttons">
 				<div class="frame__info button<?php echo $navInfoActive ? ' button--nav-active' : ''; ?>">
 					<a href="<?php echo $backLink; ?>info.php"<?php echo $navInfoActive ? ' aria-current="page"' : ''; ?>>
-						<span class="info-text-desktop">INFO</span>
-						<span class="info-text-mobile">INFO</span>
+						<span class="info-text-desktop">ABOUT</span>
+						<span class="info-text-mobile">ABOUT</span>
 					</a>
 				</div>
 				<div class="frame__instagram button">

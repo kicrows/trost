@@ -693,12 +693,18 @@ html.trost-custom-cursor textarea {
 
 .trost-cursor {
 	position: fixed;
-	top: 0;
-	left: 0;
+	top: 50%;
+	left: 50%;
 	z-index: 10000;
 	pointer-events: none;
+	transform: translate(-50%, -50%);
 	will-change: transform;
 	transition: opacity 0.2s ease;
+}
+
+html.trost-custom-cursor .trost-cursor {
+	top: 0;
+	left: 0;
 }
 
 .trost-cursor--hidden {
@@ -1033,11 +1039,14 @@ html.trost-custom-cursor textarea {
 
 	/* Index mobile: header bar = logo + burger only; rest in overlay */
 	.page-index .frame__shows-nav,
-	.page-index .frame__top-nav-right {
+	.page-index .frame__top-nav-right,
+	.page-info .frame__shows-nav,
+	.page-info .frame__top-nav-right {
 		display: none !important;
 	}
 
-	.page-index .frame__burger {
+	.page-index .frame__burger,
+	.page-info .frame__burger {
 		display: flex;
 		order: 2;
 		margin-left: auto;
@@ -1045,7 +1054,8 @@ html.trost-custom-cursor textarea {
 		align-self: flex-start;
 	}
 
-	.page-index .frame__burger .nav-overlay-toggle {
+	.page-index .frame__burger .nav-overlay-toggle,
+	.page-info .frame__burger .nav-overlay-toggle {
 		padding: var(--button-inner-padding);
 		min-height: var(--button-height);
 		display: flex;
@@ -1102,11 +1112,13 @@ html.trost-custom-cursor textarea {
 	}
 
 	.nav-overlay-footer {
+		display: none;
 		padding-top: 0;
 	}
 
 	/* When overlay is open: hide main content, bottom info, lock body scroll */
-	body.nav-overlay-open .grid {
+	body.nav-overlay-open .grid,
+	body.nav-overlay-open .info-page-container {
 		display: none;
 	}
 
