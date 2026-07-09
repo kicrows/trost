@@ -35,11 +35,7 @@
 		<meta name="ICBM" content="47.0707, 15.4395">
 		<meta name="theme-color" content="#000000">
 		
-		<!-- Favicons -->
-		<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-		<link rel="manifest" href="favicon_io/site.webmanifest">
+		<?php include __DIR__ . '/includes/favicons.php'; ?>
 		
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="https://use.typekit.net/bvo6szq.css">

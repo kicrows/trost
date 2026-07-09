@@ -213,6 +213,8 @@ $isLongDescription = $descriptionLength > 1300;
 		<meta property="twitter:title" content="<?php echo htmlspecialchars($pageTitle); ?> • TROST">
 		<meta property="twitter:description" content="<?php echo htmlspecialchars($pageTitle); ?> at TROST • Studio, Workspace & Exhibition Venue • Graz">
 		
+		<?php $faviconBasePath = '../../'; include __DIR__ . '/../../includes/favicons.php'; ?>
+		
 		<link rel="stylesheet" href="../../css/base.css">
 		<link rel="stylesheet" href="../../css/showas-single.css">
 	</head>
