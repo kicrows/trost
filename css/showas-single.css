@@ -242,6 +242,9 @@ details.exhibition-description-collapsible.exhibition-description--long:not([ope
 details.exhibition-description-collapsible.exhibition-description--long > .exhibition-description-content {
     display: block;
     margin-top: 0.75rem;
+}
+
+details.exhibition-description-collapsible.exhibition-description--very-long > .exhibition-description-content {
     padding-right: 33%;
 }
 
@@ -502,7 +505,7 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
         line-height: 1;
     }
     
-    details.exhibition-description-collapsible.exhibition-description--long > .exhibition-description-content {
+    details.exhibition-description-collapsible.exhibition-description--very-long > .exhibition-description-content {
         padding-right: 0;
     }
     

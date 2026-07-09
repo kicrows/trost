@@ -184,6 +184,7 @@ if (isset($_GET['debug'])) {
 $pageTitle = !empty($info['headline']) ? $info['headline'] : $exhibitionName;
 $descriptionLength = function_exists('mb_strlen') ? mb_strlen($info['text']) : strlen($info['text']);
 $isLongDescription = $descriptionLength > 1300;
+$isVeryLongDescription = $descriptionLength > 3000;
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -256,7 +257,7 @@ $isLongDescription = $descriptionLength > 1300;
 					</div>
 				<?php endif; ?>
 				
-				<details class="exhibition-description exhibition-description-collapsible exhibition-description--long" id="exhibition-description">
+				<details class="exhibition-description exhibition-description-collapsible exhibition-description--long<?php echo $isVeryLongDescription ? ' exhibition-description--very-long' : ''; ?>" id="exhibition-description">
 					<summary class="exhibition-description-header">
 						<span class="exhibition-description-label">INFO</span>
 						<span class="exhibition-description-line"></span>
