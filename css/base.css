@@ -693,8 +693,8 @@ html.trost-custom-cursor textarea {
 
 .trost-cursor {
 	position: fixed;
-	top: 50%;
-	left: 50%;
+	top: calc(var(--nav-inset) + 36px);
+	left: calc(var(--nav-inset) + 36px);
 	z-index: 10000;
 	pointer-events: none;
 	transform: translate(-50%, -50%);

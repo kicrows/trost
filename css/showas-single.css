@@ -99,7 +99,7 @@ body::after {
     backdrop-filter: blur(8px);
     border-radius: 12px;
     box-sizing: border-box;
-    margin-bottom: 2rem;
+    margin-bottom: 10px;
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -254,38 +254,59 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
 }
 
 .exhibition-links {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    align-items: baseline;
+    gap: 10px;
+    align-items: flex-start;
     line-height: 1;
 }
 
-.exhibition-links a {
+.exhibition-link-button {
+    position: relative;
+    z-index: 500;
+    padding: var(--button-inner-padding);
+    min-height: var(--button-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     color: var(--color-text);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-    transition: opacity 0.3s ease;
-    font-size: inherit;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    box-sizing: border-box;
     font-family: inherit;
-    text-transform: none;
-    letter-spacing: var(--body-letter-spacing-desktop);
+    font-size: var(--font-size-desktop);
     font-weight: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: var(--body-letter-spacing-desktop);
     line-height: 1;
-    display: inline-block;
 }
 
-.exhibition-links a:hover {
-    opacity: 0.7;
+.exhibition-link-button::before {
+    content: '';
+    height: 1px;
+    width: calc(100% - (var(--button-inner-padding) * 2));
+    background: currentColor;
+    position: absolute;
+    top: calc(50% + 0.6em);
+    left: var(--button-inner-padding);
+    transition: transform 0.3s;
+    transform-origin: 0% 50%;
+    transform: scaleX(0);
+}
+
+.exhibition-link-button:hover::before {
+    transform: scaleX(1);
 }
 
 /* Links from info.txt: outside the frosted description box */
 .exhibition-links--below-description {
-    margin-top: 0.75rem;
-    margin-bottom: 2rem;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .exhibition-gallery {
@@ -445,12 +466,16 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
     
     .exhibition-description {
         font-size: var(--font-size-mobile);
-        margin-bottom: 1.5rem;
+        margin-bottom: 10px;
         line-height: var(--body-line-height-mobile);
     }
     
     .exhibition-description p {
         line-height: var(--body-line-height-mobile);
+    }
+    
+    .exhibition-link-button {
+        font-size: var(--font-size-mobile);
     }
     
     /* Mobile collapsible: long descriptions only */

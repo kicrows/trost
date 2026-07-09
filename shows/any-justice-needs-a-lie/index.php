@@ -271,7 +271,7 @@ $isLongDescription = $descriptionLength > 1300;
 				<?php if (!empty($info['links'])): ?>
 					<div class="exhibition-links exhibition-links--below-description">
 						<?php foreach ($info['links'] as $link): ?>
-							<a href="<?php echo htmlspecialchars($link['url']); ?>" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($link['text']); ?></a>
+							<a class="exhibition-link-button" href="<?php echo htmlspecialchars($link['url']); ?>" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($link['text']); ?></a>
 						<?php endforeach; ?>
 					</div>
 				<?php endif; ?>
