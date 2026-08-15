@@ -40,7 +40,7 @@ body {
 	color: var(--color-text);
 	background-color: var(--color-bg);
 	text-transform: uppercase;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	/* Responsive background image that stretches to fit any resolution */
@@ -402,7 +402,7 @@ body.nav-overlay-open .frame__burger .burger-line:last-child {
 }
 
 .grid__item {
-    height: 100vh; 
+    height: 100vh;
     place-items: center;
     will-change: transform;
     display: grid;
@@ -490,7 +490,7 @@ body.nav-overlay-open .frame__burger .burger-line:last-child {
 	box-sizing: border-box;
 	min-height: var(--button-height);
 	display: block;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	width: 100%;
 }
 
@@ -570,7 +570,7 @@ body.nav-overlay-open .frame__burger .burger-line:last-child {
 	font-weight: normal;
 	letter-spacing: var(--body-letter-spacing-desktop);
 	word-spacing: 0.08em;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
 }
@@ -642,7 +642,7 @@ body.nav-overlay-open .frame__burger .burger-line:last-child {
 	font-weight: normal;
 	letter-spacing: var(--body-letter-spacing-desktop);
 	word-spacing: 0.08em;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: var(--button-inner-padding);
 	padding-top: 0;
@@ -857,7 +857,7 @@ html.trost-custom-cursor .trost-cursor {
 	.frame__top-nav {
 		justify-content: space-between;
 	}
-	
+
 	.frame__logo {
 		width: 72px;
 		height: 72px;
@@ -873,14 +873,14 @@ html.trost-custom-cursor .trost-cursor {
 		filter: blur(5px);
 		color: #CCC;
 	}
-	
+
 	.grid__item-logo path {
 		fill: #CCC;
 	}
 	.credits {
 		font-size: 1.4vw;
 	}
-	
+
 	/* Desktop/iPad: stretch text full width with variable spacing */
 	.trost-shows-info {
 		white-space: normal;
@@ -893,7 +893,7 @@ html.trost-custom-cursor .trost-cursor {
 		max-width: 33%;
 		align-self: flex-start;
 	}
-	
+
 	.trost-shows-visits {
 		white-space: normal;
 		letter-spacing: var(--body-letter-spacing-desktop);
@@ -905,7 +905,7 @@ html.trost-custom-cursor .trost-cursor {
 		max-width: 33%;
 		align-self: flex-start;
 	}
-	
+
 	.trost-about-info {
 		white-space: normal;
 		letter-spacing: var(--body-letter-spacing-desktop);
@@ -915,8 +915,8 @@ html.trost-custom-cursor .trost-cursor {
 		font-size: var(--font-size-desktop);
 		line-height: var(--body-line-height-desktop);
 	}
-	
-	
+
+
 	.trost-fixed-info {
 		white-space: normal;
 		letter-spacing: var(--body-letter-spacing-desktop);
@@ -926,7 +926,7 @@ html.trost-custom-cursor .trost-cursor {
 		font-size: var(--font-size-desktop);
 		line-height: var(--body-line-height-desktop);
 	}
-	
+
 	.trost-fixed-info a,
 	.trost-about-info a {
 		letter-spacing: inherit !important;
@@ -938,7 +938,7 @@ html.trost-custom-cursor .trost-cursor {
 		line-height: inherit;
 		vertical-align: baseline;
 	}
-	
+
 }
 
 /* Large desktop screens */
@@ -948,25 +948,25 @@ html.trost-custom-cursor .trost-cursor {
 		word-spacing: 0.12em;
 		font-size: var(--font-size-desktop);
 	}
-	
+
 	.trost-shows-visits {
 		letter-spacing: var(--body-letter-spacing-large);
 		word-spacing: normal;
 		font-size: var(--font-size-desktop);
 	}
-	
+
 	.trost-about-info {
 		letter-spacing: var(--body-letter-spacing-large);
 		word-spacing: 0.12em;
 		font-size: var(--font-size-desktop);
 	}
-	
+
 	.trost-fixed-info {
 		letter-spacing: var(--body-letter-spacing-large);
 		word-spacing: 0.12em;
 		font-size: var(--font-size-desktop);
 	}
-	
+
 }
 
 /* Extra large screens */
@@ -976,25 +976,25 @@ html.trost-custom-cursor .trost-cursor {
 		word-spacing: 0.18em;
 		font-size: var(--font-size-desktop);
 	}
-	
+
 	.trost-shows-visits {
 		letter-spacing: var(--body-letter-spacing-extra-large);
 		word-spacing: normal;
 		font-size: var(--font-size-desktop);
 	}
-	
+
 	.trost-about-info {
 		letter-spacing: var(--body-letter-spacing-extra-large);
 		word-spacing: 0.18em;
 		font-size: var(--font-size-desktop);
 	}
-	
+
 	.trost-fixed-info {
 		letter-spacing: var(--body-letter-spacing-extra-large);
 		word-spacing: 0.18em;
 		font-size: var(--font-size-desktop);
 	}
-	
+
 }
 
 /* Mobile: stack navigation divs vertically */
@@ -1006,7 +1006,7 @@ html.trost-custom-cursor .trost-cursor {
 		right: var(--nav-inset);
 		flex-wrap: wrap;
 	}
-	
+
 	.frame__logo {
 		width: auto;
 		height: 72px;
@@ -1015,7 +1015,7 @@ html.trost-custom-cursor .trost-cursor {
 		order: 1;
 		flex-shrink: 0;
 	}
-	
+
 	.frame__top-nav-right {
 		display: flex;
 		flex-direction: row;
@@ -1024,7 +1024,7 @@ html.trost-custom-cursor .trost-cursor {
 		order: 2;
 		align-items: flex-start;
 	}
-	
+
 	/* Instagram, Info, Address - aligned to top, same as logo */
 	.frame__top-nav-right .frame__instagram.button,
 	.frame__top-nav-right .frame__info.button,
@@ -1129,7 +1129,7 @@ html.trost-custom-cursor .trost-cursor {
 	body.nav-overlay-open {
 		overflow: hidden;
 	}
-	
+
 	/* Show mobile text, hide desktop text */
 	.instagram-text-desktop,
 	.address-text-desktop,
@@ -1137,14 +1137,14 @@ html.trost-custom-cursor .trost-cursor {
 	.info-text-desktop {
 		display: none;
 	}
-	
+
 	.instagram-text-mobile,
 	.address-text-mobile,
 	.back-text-mobile,
 	.info-text-mobile {
 		display: inline;
 	}
-	
+
 	/* Back button - visible on mobile, directly after logo, aligned to top */
 	.frame__back.button {
 		width: auto;
@@ -1157,7 +1157,7 @@ html.trost-custom-cursor .trost-cursor {
 		flex-shrink: 0;
 		align-self: flex-start;
 	}
-	
+
 	/* Shows navigation - full width blocks below header */
 	.frame__shows-nav {
 		width: 100%;
@@ -1169,19 +1169,19 @@ html.trost-custom-cursor .trost-cursor {
 		right: 0;
 		flex-basis: 100%;
 	}
-	
+
 	.shows-nav-list {
 		width: 100%;
 		flex-direction: column;
 		gap: 1rem;
 	}
-	
+
 	.shows-nav-item {
 		width: auto;
 		height: auto;
 		min-height: var(--button-height);
 	}
-	
+
 	.shows-nav-link {
 		font-size: var(--font-size-mobile);
 		width: 100%;
@@ -1193,14 +1193,14 @@ html.trost-custom-cursor .trost-cursor {
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 	}
-	
+
 	/* Shows nav items fit text width */
 	.shows-nav-item {
 		width: auto;
 		box-sizing: border-box;
 	}
-	
-	
+
+
 	.trost-shows-info {
 		white-space: normal;
 		line-height: var(--body-line-height-mobile);
@@ -1209,7 +1209,7 @@ html.trost-custom-cursor .trost-cursor {
 		text-transform: uppercase;
 		font-size: var(--font-size-mobile);
 	}
-	
+
 	.trost-shows-visits {
 		line-height: var(--body-line-height-mobile);
 		letter-spacing: var(--body-letter-spacing-mobile);
@@ -1217,7 +1217,7 @@ html.trost-custom-cursor .trost-cursor {
 		text-transform: uppercase;
 		font-size: var(--font-size-mobile);
 	}
-	
+
 	.trost-shows-details,
 	.trost-shows-info .trost-shows-details,
 	.text-container .trost-shows-details {
@@ -1232,7 +1232,7 @@ html.trost-custom-cursor .trost-cursor {
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 	}
-	
+
 	.trost-about-info {
 		white-space: normal;
 		line-height: var(--body-line-height-mobile);
@@ -1242,20 +1242,20 @@ html.trost-custom-cursor .trost-cursor {
 		font-weight: normal;
 		font-size: var(--font-size-mobile);
 	}
-	
+
 	/* Mobile INFO button */
 	.trost-about-button {
 		font-size: var(--font-size-mobile);
 	}
-	
+
 	.trost-about-content {
 		font-size: var(--font-size-mobile);
 	}
-	
+
 	.info-page-content .trost-about-content {
 		font-size: var(--font-size-mobile);
 	}
-	
+
 	.trost-fixed-info {
 		white-space: normal;
 		line-height: var(--body-line-height-mobile);
@@ -1265,7 +1265,7 @@ html.trost-custom-cursor .trost-cursor {
 		font-weight: normal;
 		font-size: var(--font-size-mobile);
 	}
-	
+
 	.trost-fixed-info a,
 	.trost-about-info a {
 		letter-spacing: inherit !important;
@@ -1277,5 +1277,5 @@ html.trost-custom-cursor .trost-cursor {
 		line-height: inherit;
 		vertical-align: baseline;
 	}
-	
+
 }
