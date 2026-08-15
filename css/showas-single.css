@@ -137,12 +137,11 @@ body::after {
 /* Artists line: condensed/narrow typography, sized between body and headline */
 .exhibition-artist,
 .exhibition-artist-desktop {
-    font-family: "Arial Narrow", "Helvetica Narrow", "Helvetica Neue Condensed",
-                 "Roboto Condensed", "Liberation Sans Narrow", Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     font-stretch: condensed;
-    font-size: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+    font-size: var(--artist-font-size-desktop);
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--artist-letter-spacing-desktop);
     color: var(--color-text);
     text-transform: uppercase;
     font-weight: normal;
@@ -316,7 +315,8 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
 .exhibition-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    column-gap: 10px; /* horizontal spacing between images */
+    row-gap: 3rem;    /* preserve existing vertical spacing */
     margin-bottom: 4rem;
     align-items: start;
     width: 100%;
@@ -435,7 +435,7 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
     /* Back button handled by .frame__top-nav in base.css */
     
     .exhibition-gallery-container {
-        padding: calc(1rem + 72px + 1rem + 3.5rem + 4rem) 0 2rem 0;
+        padding: calc(1rem + 30px + 1rem + 3.5rem + 4rem) 0 2rem 0; /* was 60px; ~50% less space below header */
         margin: 0 1rem;
         width: calc(100% - 2rem);
         box-sizing: border-box;
@@ -467,6 +467,13 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
         display: block;
         white-space: normal;
     }
+
+    /* Mobile size for artist line */
+    .exhibition-artist,
+    .exhibition-artist-desktop {
+        font-size: var(--artist-font-size-mobile);
+        letter-spacing: var(--artist-letter-spacing-mobile);
+    }
     
     .exhibition-description {
         font-size: var(--font-size-mobile);
@@ -480,6 +487,12 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
     
     .exhibition-link-button {
         font-size: var(--font-size-mobile);
+        padding: 12px; /* was var(--button-inner-padding) = 15px; ~20% reduction */
+    }
+
+    /* Exact gap between adjacent buttons on mobile */
+    .exhibition-links {
+        gap: 5px;
     }
     
     /* Mobile collapsible: long descriptions only */
@@ -560,7 +573,8 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
 @media screen and (min-width: 160em) {
     .exhibition-gallery {
         grid-template-columns: repeat(6, 1fr);
-        gap: 3rem;
+        column-gap: 10px; /* horizontal spacing between images */
+        row-gap: 3rem;    /* preserve existing vertical spacing */
     }
     
     /* Portrait: 3 per row (span 2 of 6); 2 per row when partial */

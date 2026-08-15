@@ -10,25 +10,30 @@
 	--color-link: #000;
 	--color-link-hover: #000;
 	/* Fluid typography: slightly reduced global text scale */
-	--font-size-desktop: clamp(12px, 10px + 0.36vw, 14px);
-	--font-size-mobile: clamp(12px, 10px + 0.36vw, 14px);
+	--font-size-desktop: clamp(13px, 11px + 0.4vw, 17px);
+	--font-size-mobile: clamp(13px, 11px + 0.4vw, 16px);
 	font-size: var(--font-size-desktop);
 	/* Headline fluid: slightly reduced to match body scale change */
-	--headline-font-size-desktop: clamp(3.75rem, 3.75rem + 0.8vw, 2.4rem);
-	--headline-font-size-mobile: clamp(2.75rem, 2.75rem + 0.8vw, 2.4rem);
+	--headline-font-size-desktop: clamp(1.7rem, 1.45rem + 0.8vw, 2.9rem);
+	--headline-font-size-mobile: clamp(1.6rem, 1.2rem + 0.7vw, 2.7rem);
+	/* Artist line sizing */
+	--artist-font-size-desktop: clamp(1.2rem, 1rem + 0.5vw, 1.75rem);
+	--artist-font-size-mobile: clamp(1.1rem, 0.95rem + 0.4vw, 1.5rem);
+	--artist-letter-spacing-desktop: -0.07em;
+	--artist-letter-spacing-mobile: -0.07em;
 	/* Fixed inset for nav/buttons so padding doesn't scale with fluid type */
 	--nav-inset: 15px;
-	--headline-letter-spacing: -0.08em;
+	--headline-letter-spacing: -0.09em;
 	--headline-line-height-desktop: 1.0;
 	--headline-line-height-mobile: 1.0;
 	/* Body text line height - global variable */
 	--body-line-height-desktop: 1.3;
 	--body-line-height-mobile: 1.3;
 	/* Body text letter spacing - global variables */
-	--body-letter-spacing-desktop: -0.00em;
-	--body-letter-spacing-mobile: -0.00em;
-	--body-letter-spacing-large: -0.00em;
-	--body-letter-spacing-extra-large: -0.00em;
+	--body-letter-spacing-mobile: -0.05em;
+	--body-letter-spacing-desktop: -0.05em;
+	--body-letter-spacing-large: -0.05em;
+	--body-letter-spacing-extra-large: -0.05em;
 	/* Button dimensions - consistent across all buttons */
 	--button-margin: 30px; /* Outer spacing between buttons */
 	--button-inner-padding: 15px; /* Inner padding inside buttons */
@@ -1009,11 +1014,17 @@ html.trost-custom-cursor .trost-cursor {
 
 	.frame__logo {
 		width: auto;
-		height: 72px;
+		height: 50px; /* was 72px; ~30% smaller on mobile */
 		justify-content: flex-start;
 		align-items: flex-start;
 		order: 1;
 		flex-shrink: 0;
+	}
+
+	/* Reduce displayed logo graphic size on mobile */
+	.logo-pony {
+		width: 50px; /* was 72px */
+		height: 50px; /* was 72px */
 	}
 
 	.frame__top-nav-right {
@@ -1035,6 +1046,11 @@ html.trost-custom-cursor .trost-cursor {
 		margin: 0;
 		height: var(--button-height);
 		align-self: flex-start;
+	}
+
+	/* Moderately reduce mobile button padding (~20%) without changing desktop */
+	.button {
+		padding: 12px; /* was 15px via var(--button-inner-padding) */
 	}
 
 	/* Index mobile: header bar = logo + burger only; rest in overlay */
