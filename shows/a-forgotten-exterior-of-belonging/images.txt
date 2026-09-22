@@ -1,0 +1,32 @@
+# Images list - Format: filename|caption
+# One image per line
+# Leave caption empty if no caption needed
+# Example: 01_image.jpg|This is the caption
+
+01-Trost-forgotten-exterior-belonging-Stiegler-Sworcik007-Tom-Biela.jpg|
+02-Trost-forgotten-exterior-belonging-Stiegler-Sworcik037-Tom-Biela.jpg|
+03-Trost-forgotten-exterior-belonging-Stiegler-Sworcik056-Tom-Biela.jpg|
+04-Trost-forgotten-exterior-belonging-Stiegler-Sworcik123-Tom-Biela.jpg|
+05-Trost-forgotten-exterior-belonging-Stiegler-Sworcik116-Tom-Biela.jpg|
+06-Trost-forgotten-exterior-belonging-Stiegler-Sworcik121-Tom-Biela.jpg|
+07-Trost-forgotten-exterior-belonging-Stiegler-Sworcik153-Tom-Biela.jpg|
+08-Trost-forgotten-exterior-belonging-Stiegler-Sworcik175-Tom-Biela.jpg|
+09-Trost-forgotten-exterior-belonging-Stiegler-Sworcik136-Tom-Biela.jpg|
+10-Trost-forgotten-exterior-belonging-Stiegler-Sworcik102-Tom-Biela.jpg|
+11-Trost-forgotten-exterior-belonging-Stiegler-Sworcik146-Tom-Biela.jpg|
+12-Trost-forgotten-exterior-belonging-Stiegler-Sworcik107-Tom-Biela.jpg|
+13-Trost-forgotten-exterior-belonging-Stiegler-Sworcik157-Tom-Biela.jpg|
+14-Trost-forgotten-exterior-belonging-Stiegler-Sworcik161-Tom-Biela.jpg|
+15-Trost-forgotten-exterior-belonging-Stiegler-Sworcik097-Tom-Biela.jpg|
+16-Trost-forgotten-exterior-belonging-Stiegler-Sworcik165-Tom-Biela.jpg|
+17-Trost-forgotten-exterior-belonging-Stiegler-Sworcik167-Tom-Biela.jpg|
+18-Trost-forgotten-exterior-belonging-Stiegler-Sworcik183-Tom-Biela.jpg|
+19-Trost-forgotten-exterior-belonging-Stiegler-Sworcik139-Tom-Biela.jpg|
+20-Trost-forgotten-exterior-belonging-Stiegler-Sworcik081-Tom-Biela.jpg|
+21-Trost-forgotten-exterior-belonging-Stiegler-Sworcik070-Tom-Biela.jpg|
+22-Trost-forgotten-exterior-belonging-Stiegler-Sworcik076-Tom-Biela.jpg|
+23-Trost-forgotten-exterior-belonging-Stiegler-Sworcik093-Tom-Biela.jpg|
+24-Trost-forgotten-exterior-belonging-Stiegler-Sworcik143-Tom-Biela.jpg|
+25-Trost-forgotten-exterior-belonging-Stiegler-Sworcik147-Tom-Biela.jpg|
+26-Trost-forgotten-exterior-belonging-Stiegler-Sworcik151-Tom-Biela.jpg|
+27-Trost-forgotten-exterior-belonging-Stiegler-Sworcik166-Tom-Biela.jpg|

@@ -1,0 +1,26 @@
+# Exhibition Info - Format: one item per line
+# Leave empty if not needed
+# Lines starting with # are comments
+# Links: Use any label name you want (format: link: Name|URL)
+# You can have 1-3 links (or more), each with its own custom label
+
+headline:A forgotten exterior of belonging
+date:18 09 — 20 09 2026
+
+
+
+artists:
+Artists: René Stiegler, Markus Sworcik
+curation: 
+
+text:
+I live at the end of an indefinite corridor, although I can never quite say where it begins. The words themselves feel slightly mispronounced, as if the hallways were trying to become something else. She has no room for him, she shrugs, and for the life of me I cannot figure who she is in this moment in time. There is only the vague language of movement and the blinker clicking, tick tack tick tack, with absolute certainty in an apparently wrong direction. Somewhere in the off color of my own tongue our consonants spun and I could breathe again for a second, only a short second. The rooms kept collapsing and expanding as if they were only another version of the self. Whatever it is remains here, moving between things, where there is no echo and therefore no description of space or love.
+
+I think I am seeing now better through half translucent veils, not remembering, although the distinction has become difficult to maintain. Magnesia, perhaps, or something like it - a name for a white glowing place - that was never quite existent. We create stories to protect ourselves, but eventually this exact story begins to  protecting itself. The centre is not the centre anymore; the outside has no exterior; nothing is where it belongs, except the things we have already forgotten, that was in the past. I am there, my friendly haze having finally arrived, and I understand that explanation is weaker than experience, while experience without understanding becomes another kind of copy. The second version seems more original though and the index has no entry. Our corridor reaches its own end, and no better book ends than two walls.
+
+
+link:René Stiegler|https://renestiegler.com/
+link:Markus Sworcik|https://markussworcik.com/
+
+
+photography: Tom Biela|https://tombiela.com
