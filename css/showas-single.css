@@ -312,6 +312,18 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
     margin-bottom: 10px;
 }
 
+.exhibition-soundcloud {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.exhibition-soundcloud__player {
+    display: block;
+    width: 100%;
+    height: 80px;
+    border: 0;
+}
+
 .exhibition-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

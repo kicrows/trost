@@ -38,6 +38,7 @@ function parseInfoTxt($filePath) {
         'curator' => '',
         'photography' => '',
         'photography_url' => '',
+        'soundcloud_url' => '',
         'links' => []
     ];
     
@@ -100,6 +101,11 @@ function parseInfoTxt($filePath) {
             $photoParts = explode('|', $photoContent);
             $info['photography'] = trim($photoParts[0]);
             $info['photography_url'] = isset($photoParts[1]) ? trim($photoParts[1]) : '';
+            $inTextBlock = false;
+            $inArtistsBlock = false;
+            $currentSection = '';
+        } elseif (preg_match('/^soundcloud:\s*(.*)$/i', $line, $soundcloudMatch)) {
+            $info['soundcloud_url'] = trim($soundcloudMatch[1]);
             $inTextBlock = false;
             $inArtistsBlock = false;
             $currentSection = '';
@@ -167,9 +173,28 @@ function parseImagesTxt($filePath) {
     return $images;
 }
 
+function getSoundCloudEmbedUrl($url) {
+    $url = trim($url);
+    if ($url === '' || filter_var($url, FILTER_VALIDATE_URL) === false) {
+        return '';
+    }
+
+    $urlParts = parse_url($url);
+    $scheme = strtolower($urlParts['scheme'] ?? '');
+    $host = strtolower($urlParts['host'] ?? '');
+    $allowedHosts = ['soundcloud.com', 'www.soundcloud.com', 'on.soundcloud.com'];
+
+    if ($scheme !== 'https' || !in_array($host, $allowedHosts, true)) {
+        return '';
+    }
+
+    return 'https://w.soundcloud.com/player/?url=' . rawurlencode($url) . '&auto_play=true&color=%23000000&show_artwork=false&show_user=false&show_playcount=false&buying=false&sharing=false&download=false';
+}
+
 // Load data
 $info = parseInfoTxt($infoTxtPath);
 $images = parseImagesTxt($imagesTxtPath);
+$soundcloudEmbedUrl = getSoundCloudEmbedUrl($info['soundcloud_url']);
 
 // Debug output (remove in production)
 if (isset($_GET['debug'])) {
@@ -275,6 +300,23 @@ $isVeryLongDescription = $descriptionLength > 3000;
 							<a class="exhibition-link-button" href="<?php echo htmlspecialchars($link['url']); ?>" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($link['text']); ?></a>
 						<?php endforeach; ?>
 					</div>
+				<?php endif; ?>
+				<?php if ($soundcloudEmbedUrl !== ''): ?>
+					<div class="exhibition-soundcloud">
+						<iframe class="exhibition-soundcloud__player" title="SoundCloud player" scrolling="no" allow="autoplay" src="<?php echo htmlspecialchars($soundcloudEmbedUrl, ENT_QUOTES, 'UTF-8'); ?>"></iframe>
+					</div>
+					<script src="https://w.soundcloud.com/player/api.js"></script>
+					<script>
+					(function() {
+						var player = document.querySelector('.exhibition-soundcloud__player');
+						if (!player || !window.SC || !window.SC.Widget) return;
+						var widget = window.SC.Widget(player);
+						widget.bind(window.SC.Widget.Events.FINISH, function() {
+							widget.seekTo(0);
+							widget.play();
+						});
+					}());
+					</script>
 				<?php endif; ?>
 				<div class="exhibition-gallery" id="exhibition-gallery">
 					<?php if (empty($images)): ?>
