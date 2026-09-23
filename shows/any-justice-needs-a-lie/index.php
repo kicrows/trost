@@ -188,7 +188,7 @@ function getSoundCloudEmbedUrl($url) {
         return '';
     }
 
-    return 'https://w.soundcloud.com/player/?url=' . rawurlencode($url) . '&auto_play=true&color=%23000000&show_artwork=false&show_user=false&show_playcount=false&buying=false&sharing=false&download=false';
+    return 'https://w.soundcloud.com/player/?url=' . rawurlencode($url) . '&auto_play=true&show_teaser=false&color=%23000000&show_artwork=false&show_user=false&show_playcount=false&buying=false&sharing=false&download=false';
 }
 
 // Load data
