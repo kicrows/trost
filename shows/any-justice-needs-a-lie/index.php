@@ -349,9 +349,12 @@ $isVeryLongDescription = $descriptionLength > 3000;
 						<?php endforeach; ?>
 					<?php endif; ?>
 				</div>
+				<div class="trost-show-info">
+					<?php include __DIR__ . '/../../includes/trost-fixed-info.php'; ?>
+				</div>
 			</div>
 		</main>
-		
+			
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
 				document.body.classList.remove('loading');
