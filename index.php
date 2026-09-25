@@ -83,11 +83,7 @@
 				Visits by appointment and occasional short openings also announced.
 			</div>
 			-->
-			<div class="trost-fixed-info text-container">
-				<span class="trost-current-year"><?php echo date(
-        "y",
-    ); ?></span> TROST is a studio, workspace and occasional exhibition venue run by <a href="https://renestiegler.com" target="_blank">René Stiegler</a> and <a href="https://markussworcik.com" target="_blank">Markus Sworcik</a> in Graz – supported by <a href="https://www.kultur.steiermark.at/" target="_blank"><b>KUNSTRAUM STEIERMARK</b></a> as part of its studio grant program.
-			</div>
+			<?php include __DIR__ . '/includes/trost-fixed-info.php'; ?>
 		</div>
 		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>

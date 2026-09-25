@@ -46,7 +46,7 @@ body::after {
 .exhibition-gallery-container {
     position: relative;
     z-index: 100;
-    padding: calc(1rem + 72px + 1rem + 3.5rem + 4rem) 0 4rem 0;
+    padding: calc(1rem + 72px + 1rem + 3.5rem + 4rem) 0 0 0;
     margin: 0 1rem;
     width: calc(100% - 2rem);
     box-sizing: border-box;
@@ -324,6 +324,11 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
     border: 0;
 }
 
+/* Exhibition footer: keep in normal flow; 1rem bottom, no extra L/R inset (parent already provides 1rem each side). */
+.trost-show-info {
+    margin: 0 0 1rem;
+}
+
 .exhibition-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -453,7 +458,7 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
     /* Back button handled by .frame__top-nav in base.css */
     
     .exhibition-gallery-container {
-        padding: calc(1rem + 30px + 1rem + 3.5rem + 4rem) 0 2rem 0; /* was 60px; ~50% less space below header */
+        padding: calc(1rem + 30px + 1rem + 3.5rem + 4rem) 0 0 0; /* was 60px; ~50% less space below header */
         margin: 0 1rem;
         width: calc(100% - 2rem);
         box-sizing: border-box;
@@ -570,6 +575,11 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
         column-gap: 10px;
         row-gap: 10px;
         width: 100%;
+    }
+
+    /* Exhibition footer on mobile: 1rem bottom, no extra L/R inset */
+    .trost-show-info {
+        margin: 0 0 1rem;
     }
     
     /* On mobile, all images are single column */
