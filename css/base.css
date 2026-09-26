@@ -1483,7 +1483,11 @@ html.trost-custom-cursor .trost-cursor {
 	body.page-index::before {
 		content: '';
 		position: fixed;
-		inset: 0;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100svh;
+		height: 100dvh;
 		pointer-events: none;
 		background-image:
 			linear-gradient(rgba(255,255,255, var(--img-fade)), rgba(255,255,255, var(--img-fade))),
