@@ -9,14 +9,23 @@ const repeatItems = (parentEl, total = 0) => {
     }
 };
 
-const lenis = new Lenis({
-    smooth: true,
-    infinite: true
-});
+// Mobile detection (must run before any Lenis initialization)
+const isSmallViewport = window.matchMedia('(max-width: 848px)').matches;
+const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+const isMobileUA = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
+const isMobile = (isSmallViewport && isTouchDevice) || isMobileUA;
 
-lenis.on('scroll',()=>{
-  ScrollTrigger.update()
-})
+let lenis = null;
+if (!isMobile) {
+    lenis = new Lenis({
+        smooth: true,
+        infinite: true
+    });
+
+    lenis.on('scroll', () => {
+        ScrollTrigger.update();
+    });
+}
 
 function raf(time) {
     lenis.raf(time);
