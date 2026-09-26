@@ -1487,7 +1487,7 @@ html.trost-custom-cursor .trost-cursor {
 		top: 0;
 		left: 0;
 		width: 100vw;
-		height: 100lvh;
+		height: var(--mobile-vh);
 		pointer-events: none;
 		z-index: 0;
 
@@ -1507,7 +1507,7 @@ html.trost-custom-cursor .trost-cursor {
 		display: none;
 	}
 	.page-index .grid > .grid__item:first-child {
-		height: 100lvh;
+		height: var(--mobile-vh);
 	}
 
 }

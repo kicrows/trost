@@ -15,6 +15,21 @@ const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').m
 const isMobileUA = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
 const isMobile = (isSmallViewport && isTouchDevice) || isMobileUA;
 
+// Mobile-only: set real visual viewport height into a CSS variable --mobile-vh
+if (isMobile) {
+    const updateMobileVh = () => {
+        const h = (window.visualViewport && typeof window.visualViewport.height === 'number')
+            ? window.visualViewport.height
+            : window.innerHeight;
+        document.documentElement.style.setProperty('--mobile-vh', `${Math.round(h)}px`);
+    };
+    updateMobileVh();
+    if (window.visualViewport && typeof window.visualViewport.addEventListener === 'function') {
+        window.visualViewport.addEventListener('resize', updateMobileVh);
+    }
+    window.addEventListener('resize', updateMobileVh);
+}
+
 let lenis = null;
 if (!isMobile) {
     lenis = new Lenis({
