@@ -43,7 +43,11 @@ imagesLoaded( document.querySelectorAll('.grid__item'), { background: true }, ()
     document.body.classList.remove('loading');
 
     // Mobile-only: disable homepage scrolling animations and endless behavior
-    const isMobile = window.matchMedia('(max-width: 52.99em)').matches;
+    const isSmallViewport = window.matchMedia('(max-width: 848px)').matches;
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const isMobileUA = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
+
+    const isMobile = (isSmallViewport && isTouchDevice) || isMobileUA;
     if (isMobile) {
         // Do not run repeatItems(), do not start Lenis RAF, and do not create GSAP/ScrollTrigger timelines.
         // Grid and logo remain visually static on mobile.

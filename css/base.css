@@ -1476,4 +1476,24 @@ html.trost-custom-cursor .trost-cursor {
 		vertical-align: baseline;
 	}
 
+	/* Mobile: fix homepage background as viewport-fixed layer on iOS/Android */
+	body.page-index {
+		background: none;
+	}
+	body.page-index::before {
+		content: '';
+		position: fixed;
+		inset: 0;
+		pointer-events: none;
+		background-image:
+			linear-gradient(rgba(255,255,255, var(--img-fade)), rgba(255,255,255, var(--img-fade))),
+			url('../img/logo-trost-filter-01.jpg');
+		background-blend-mode: normal, normal;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		animation: trost-home-fade 7s ease-in-out infinite;
+		z-index: 0;
+	}
+
 }
