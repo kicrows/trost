@@ -8,7 +8,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+
 		<!-- Primary Meta Tags -->
 		<title>TROST • Studio, Workspace & Exhibition Venue • Graz</title>
 		<meta name="title" content="TROST • Studio, Workspace & Contemporary Exhibition Venue • Graz">
@@ -67,23 +67,30 @@
 				<div class="grid__item">
 					<div class="grid__item-inner">
 						<div class="grid__item-img" style=""></div>
-						<p class="grid__item-text"><a href="#"></a></p>
+						<p class="grid__item-text">
+							<span class="button">
+								<a href="https://www.steirischerherbst.at/de/program/events/9082/kunstraum-trost-jakob-kolb-vessels-engine-room" target="_blank" rel="noopener noreferrer">steirischer herbst ’26</a>
+							</span>
+						</p>
 					</div>
 				</div>
 			</div>
 		</main>
 		<div class="trost-info-container">
-			<!--
+<!-- --
 			<div class="trost-shows-info text-container">
-				TROST Exchange #3 Coming Soon
+				    TROST Studio Exchange
 				<div class="trost-shows-details">
+    				Jakob Kolb <br>
+    				Vessels: Engine Room
 				</div>
 			</div>
 			<div class="trost-shows-visits text-container">
-				Visits by appointment and occasional short openings also announced.
+			    Oct 1–15<br>
+				Open: Thu + Sun, 17:00–19:00<br>
+			    Free admission
 			</div>
-			-->
-			<?php include __DIR__ . '/includes/trost-fixed-info.php'; ?>
+-->			<?php include __DIR__ . '/includes/trost-fixed-info.php'; ?>
 		</div>
 		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>

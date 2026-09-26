@@ -40,21 +40,38 @@
 	--button-height: 36px; /* Fixed height for all buttons */
 }
 
-body {
-	margin: 0;
-	color: var(--color-text);
-	background-color: var(--color-bg);
-	text-transform: uppercase;
-	font-family: Arial, Helvetica, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	/* Responsive background image that stretches to fit any resolution */
-	background-image: url('../img/logo-trost-filter-01.jpg');
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-}
+	/* Registered custom property for animatable homepage tint color */
+	@property --trost-tint {
+		syntax: '<color>';
+		inherits: false;
+		initial-value: #d00000;
+	}
+
+	/* Registered custom property for homepage image fade (0 = fully visible, 1 = fully white overlay) */
+	@property --img-fade {
+		syntax: '<number>';
+		inherits: false;
+		initial-value: 0;
+	}
+
+	body {
+		margin: 0;
+		color: var(--color-text);
+		background-color: var(--color-bg);
+		text-transform: uppercase;
+		font-family: Arial, Helvetica, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		/* Responsive background image that stretches to fit any resolution */
+		background-image:
+			linear-gradient(var(--trost-tint), var(--trost-tint)),
+			url('../img/logo-trost-filter-01.jpg');
+		background-blend-mode: color, normal;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
 
 /* Page Loader */
 .js .loading::before,
@@ -90,9 +107,17 @@ body {
 		opacity: 1;
 		transform: scale3d(0.5,0.5,1);
 	}
+	}
+
+/* Homepage background tint animation: red → green → red */
+/* Homepage background: restore normal grayscale image (no color/opacity animation) */
+body.page-index {
+	background-image: url('../img/logo-trost-filter-01.jpg');
+	background-blend-mode: normal;
+	animation: none;
 }
 
-a {
+	a {
 	text-decoration: none;
 	color: var(--color-link);
 	outline: none;
@@ -447,6 +472,72 @@ body.nav-overlay-open .frame__burger .burger-line:last-child {
     background-position: 50% 50%;
 	height: 70vh;
 	aspect-ratio: 1.5;
+}
+
+/* Homepage layering fix: keep checkerboard/link above fixed info container (z=500) without affecting logo */
+.page-index .grid > .grid__item:nth-of-type(2) {
+	position: relative;
+	z-index: 501;
+}
+
+/* Homepage checkerboard: fixed 200x200 centered in existing layout */
+@property --cb-a {
+	syntax: '<color>';
+	inherits: false;
+	initial-value: #ff0000;
+}
+@property --cb-b {
+	syntax: '<color>';
+	inherits: false;
+	initial-value: #00a86b;
+}
+
+@keyframes trost-cb-swap {
+	0%, 100% {
+		/* State 1: TL/BR = RED, TR/BL = GREEN */
+		background-image:
+			linear-gradient(0deg, #ff0000, #ff0000), /* TL */
+			linear-gradient(0deg, #00a86b, #00a86b), /* TR */
+			linear-gradient(0deg, #00a86b, #00a86b), /* BL */
+			linear-gradient(0deg, #ff0000, #ff0000); /* BR */
+		background-position:
+			left top,
+			right top,
+			left bottom,
+			right bottom;
+		background-size: 100px 100px;
+		background-repeat: no-repeat;
+	}
+	50% {
+		/* State 2: TL/BR = GREEN, TR/BL = RED */
+		background-image:
+			linear-gradient(0deg, #00a86b, #00a86b), /* TL */
+			linear-gradient(0deg, #ff0000, #ff0000), /* TR */
+			linear-gradient(0deg, #ff0000, #ff0000), /* BL */
+			linear-gradient(0deg, #00a86b, #00a86b); /* BR */
+		background-position:
+			left top,
+			right top,
+			left bottom,
+			right bottom;
+		background-size: 100px 100px;
+		background-repeat: no-repeat;
+	}
+}
+
+body.page-index .grid__item-img {
+	width: 200px;
+	height: 200px;
+	aspect-ratio: auto;
+	/* 2x2 checkerboard with 100px squares using layered gradients */
+	background-image:
+		linear-gradient(45deg, var(--cb-a) 25%, transparent 25%, transparent 75%, var(--cb-a) 75%),
+		linear-gradient(45deg, var(--cb-a) 25%, transparent 25%, transparent 75%, var(--cb-a) 75%),
+		linear-gradient(0deg, var(--cb-b), var(--cb-b));
+	background-size: 200px 200px, 200px 200px, 200px 200px;
+	background-position: 0 0, 100px 100px, 0 0;
+	/* explicit 2s discrete swap between full checker states */
+	animation: trost-cb-swap 2s ease-in-out infinite;
 }
 
 .grid__item-text {
