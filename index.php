@@ -79,21 +79,70 @@
 			</div>
 
 		</main>
-		<div class="trost-info-container">
-<!-- --
-			<div class="trost-shows-info text-container">
-				    TROST Studio Exchange
-				<div class="trost-shows-details">
-    				Jakob Kolb <br>
-    				Vessels: Engine Room
+
+		<!-- Shared fixed bottom wrapper: contains ticker (if enabled) and existing TROST info box -->
+		<div class="trost-bottom-wrapper">
+			<?php
+			// Read ticker lines from /ticker.txt (project root), ignore empty lines and support enabled: yes|no
+			$tickerFile = __DIR__ . '/ticker.txt';
+			$messages = [];
+			$enabled = true; // default visible if no flag is present
+			if (is_readable($tickerFile)) {
+			    $rawLines = file($tickerFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+			    if ($rawLines !== false) {
+			        foreach ($rawLines as $raw) {
+			            $line = trim($raw);
+			            if ($line === '') { continue; }
+			            // Parse enabled flag; do not treat as content
+			            if (stripos($line, 'enabled:') === 0) {
+			                $value = trim(substr($line, strlen('enabled:')));
+			                $enabled = !(strtolower($value) === 'no' || $value === '0' || strtolower($value) === 'false');
+			                continue;
+			            }
+			            $messages[] = htmlspecialchars($line, ENT_QUOTES, 'UTF-8');
+			        }
+			    }
+			}
+			if ($enabled):
+			?>
+			<div class="trost-ticker" role="region" aria-label="Next show ticker">
+				<div class="trost-ticker__inner">
+					<div class="trost-ticker__track">
+						<?php
+						if (!$messages) {
+						    $messages = ['[PLACEHOLDER: add messages in /ticker.txt]'];
+						}
+						// Helper: render one complete sequence with separators between items
+						$renderSequence = function(array $msgs) {
+						    $html = '';
+						    $last = count($msgs) - 1;
+						    foreach ($msgs as $i => $m) {
+						        $html .= '<span class="trost-ticker__text">' . $m . '</span>';
+						        if ($i !== $last) {
+						            $html .= '<span class="trost-ticker__sep">•</span>';
+						        }
+						    }
+						    return $html;
+						};
+						$sequence = $renderSequence($messages);
+						// Build a long segment by repeating the full sequence many times so it always overflows viewport
+						$repeatCount = 12; // ensures long track even when messages are short
+						$segmentHtml = '';
+						for ($i = 0; $i < $repeatCount; $i++) {
+						    if ($i > 0) { $segmentHtml .= '<span class="trost-ticker__sep">•</span>'; }
+						    $segmentHtml .= $sequence;
+						}
+						?>
+						<div class="trost-ticker__segment"><?php echo $segmentHtml; ?></div>
+						<div class="trost-ticker__segment" aria-hidden="true"><?php echo $segmentHtml; ?></div>
+					</div>
 				</div>
 			</div>
-			<div class="trost-shows-visits text-container">
-			    Oct 1–15<br>
-				Open: Thu + Sun, 17:00–19:00<br>
-			    Free admission
+			<?php endif; ?>
+
+			<div class="trost-info-container">
+				<?php include __DIR__ . '/includes/trost-fixed-info.php'; ?>
 			</div>
--->			<?php include __DIR__ . '/includes/trost-fixed-info.php'; ?>
 		</div>
 		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
