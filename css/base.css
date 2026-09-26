@@ -474,13 +474,7 @@ body.nav-overlay-open .frame__burger .burger-line:last-child {
 	aspect-ratio: 1.5;
 }
 
-/* Homepage layering fix: keep checkerboard/link above fixed info container (z=500) without affecting logo */
-.page-index .grid > .grid__item:nth-of-type(2) {
-	position: relative;
-	z-index: 501;
-}
-
-/* Homepage checkerboard: fixed 200x200 centered in existing layout */
+/* Homepage checkerboard: fixed 200x200 centered in viewport (outside scrolling grid) */
 @property --cb-a {
 	syntax: '<color>';
 	inherits: false;
@@ -525,18 +519,26 @@ body.nav-overlay-open .frame__burger .burger-line:last-child {
 	}
 }
 
-body.page-index .grid__item-img {
+/* Fixed wrapper centered in viewport; only its children receive pointer events */
+.home-fixed-center {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: grid;
+	gap: 10px;
+	justify-items: center;
+	pointer-events: none; /* don’t block unrelated UI */
+}
+.home-fixed-center > * {
+	pointer-events: auto; /* allow clicks on checkerboard and button */
+}
+
+/* 2x2 checkerboard box */
+.home-checkerboard {
 	width: 200px;
 	height: 200px;
-	aspect-ratio: auto;
-	/* 2x2 checkerboard with 100px squares using layered gradients */
-	background-image:
-		linear-gradient(45deg, var(--cb-a) 25%, transparent 25%, transparent 75%, var(--cb-a) 75%),
-		linear-gradient(45deg, var(--cb-a) 25%, transparent 25%, transparent 75%, var(--cb-a) 75%),
-		linear-gradient(0deg, var(--cb-b), var(--cb-b));
-	background-size: 200px 200px, 200px 200px, 200px 200px;
-	background-position: 0 0, 100px 100px, 0 0;
-	/* explicit 2s discrete swap between full checker states */
+	background: transparent; /* animated via keyframes below */
 	animation: trost-cb-swap 2s ease-in-out infinite;
 }
 
