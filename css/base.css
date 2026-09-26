@@ -54,7 +54,11 @@
 		initial-value: 0;
 	}
 
-	body {
+	html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
 		margin: 0;
 		color: var(--color-text);
 		background-color: var(--color-bg);
@@ -113,9 +117,22 @@
 /* Homepage background: restore normal grayscale image (no color/opacity animation) */
 /* Homepage background grayscale breathing animation */
 @keyframes trost-home-fade {
-	0%, 100% { --img-fade: 0.7; }
-	50%      { --img-fade: 0.4; }
-}
+		0%, 100% { --img-fade: 0.7; }
+		50%      { --img-fade: 0.4; }
+	}
+
+	/* Mobile: apply global mobile font scale and explicit ticker font-size */
+	@media (max-width: 52.99em) {
+		:root {
+			font-size: var(--font-size-mobile);
+		}
+	}
+
+	@media (max-width: 52.99em) {
+		.page-index .trost-ticker {
+			font-size: var(--font-size-mobile);
+		}
+	}
 
 body.page-index {
 	background-image:

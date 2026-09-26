@@ -42,6 +42,14 @@ imagesLoaded( document.querySelectorAll('.grid__item'), { background: true }, ()
 
     document.body.classList.remove('loading');
 
+    // Mobile-only: disable homepage scrolling animations and endless behavior
+    const isMobile = window.matchMedia('(max-width: 52.99em)').matches;
+    if (isMobile) {
+        // Do not run repeatItems(), do not start Lenis RAF, and do not create GSAP/ScrollTrigger timelines.
+        // Grid and logo remain visually static on mobile.
+        return;
+    }
+
     repeatItems(document.querySelector('.grid'), 1);
 
     const items = [...document.querySelectorAll('.grid__item')];
