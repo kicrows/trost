@@ -111,10 +111,18 @@
 
 /* Homepage background tint animation: red → green → red */
 /* Homepage background: restore normal grayscale image (no color/opacity animation) */
+/* Homepage background grayscale breathing animation */
+@keyframes trost-home-fade {
+	0%, 100% { --img-fade: 0.7; }
+	50%      { --img-fade: 0.4; }
+}
+
 body.page-index {
-	background-image: url('../img/logo-trost-filter-01.jpg');
-	background-blend-mode: normal;
-	animation: none;
+	background-image:
+		linear-gradient(rgba(255,255,255, var(--img-fade)), rgba(255,255,255, var(--img-fade))),
+		url('../img/logo-trost-filter-01.jpg');
+	background-blend-mode: normal, normal;
+	animation: trost-home-fade 7s ease-in-out infinite;
 }
 
 	a {
