@@ -473,7 +473,7 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
     
     .exhibition-title-text {
         font-family: "Times New Roman", Times, serif !important;
-        font-size: var(--headline-font-size-mobile);
+        font-size: calc(var(--headline-font-size-mobile) * 1.3);
         line-height: var(--headline-line-height-mobile);
         letter-spacing: var(--headline-letter-spacing);
         flex: none;
@@ -482,7 +482,7 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
     }
     
     .exhibition-date {
-        font-size: var(--headline-font-size-mobile);
+        font-size: calc(var(--headline-font-size-mobile) * 1.3);
         line-height: var(--headline-line-height-mobile);
         letter-spacing: var(--headline-letter-spacing);
         font-family: "Times New Roman", Times, serif !important;
@@ -494,7 +494,7 @@ details.exhibition-description-collapsible.exhibition-description--long[open] .e
     /* Mobile size for artist line */
     .exhibition-artist,
     .exhibition-artist-desktop {
-        font-size: var(--artist-font-size-mobile);
+        font-size: calc(var(--artist-font-size-mobile) * 1.3);
         letter-spacing: var(--artist-letter-spacing-mobile);
     }
     
