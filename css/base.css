@@ -1128,6 +1128,47 @@ html.trost-custom-cursor .trost-cursor {
 
 }
 
+/* Desktop overlay: show nav overlay and pin bottom info inside it */
+@media screen and (min-width: 53em) {
+	/* Show the overlay on desktop when open */
+	body.nav-overlay-open .nav-overlay {
+		display: flex;
+	}
+	/* Make overlay full-viewport on desktop (matches mobile architecture) */
+	.nav-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 600;
+		background: #e5e5e5;
+		padding: 0 var(--nav-inset) var(--nav-inset) var(--nav-inset);
+		overflow-y: auto;
+		/* Desktop overlay layout container */
+		flex-direction: column; /* display:flex is applied by body.nav-overlay-open */
+	}
+	/* Column layout; allow bottom block to sit at the bottom */
+	.nav-overlay-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		flex: 1;
+		min-height: 0; /* allow children to size/scroll correctly */
+		padding-top: calc(var(--nav-inset) + 72px + 37.5px);
+	}
+	/* Main shows area scrolls independently; bottom buttons dock */
+	.nav-overlay-shows {
+		flex: 1 1 auto;
+		min-height: 0;
+		overflow-y: auto;
+	}
+	/* Push About/Instagram/Address group to the bottom on desktop */
+	.nav-overlay-buttons {
+		margin-top: auto;
+	}
+}
+
 /* Large desktop screens */
 @media screen and (min-width: 80em) {
 	.trost-shows-info {
@@ -1203,10 +1244,10 @@ html.trost-custom-cursor .trost-cursor {
 		flex-shrink: 0;
 	}
 
-	/* Reduce displayed logo graphic size on mobile */
+	/* Mobile: explicit logo size per inspector test */
 	.logo-pony {
-		width: 50px; /* was 72px */
-		height: 50px; /* was 72px */
+		width: 75px;
+		height: 75px;
 	}
 
 	.frame__top-nav-right {
@@ -1253,13 +1294,71 @@ html.trost-custom-cursor .trost-cursor {
 	}
 
 	.page-index .frame__burger .nav-overlay-toggle,
-	.page-info .frame__burger .nav-overlay-toggle {
-		padding: var(--button-inner-padding);
-		min-height: var(--button-height);
+	.page-index .frame__burger .nav-overlay-toggle {
+		/* Turn hamburger into a compact circular button on mobile */
+		width: var(--button-height);
+		height: var(--button-height);
+		padding: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		color: var(--color-text);
+		background: rgba(255, 255, 255, 0.35);
+		backdrop-filter: blur(8px);
+		border-radius: 50%;
+	}
+
+	/* Ensure the burger icon is centered within the new circle */
+	.page-index .frame__burger .burger-icon {
+		width: 22px; /* slightly smaller to fit the circle comfortably */
+		height: 16px;
+	}
+
+	/* Make the checkerboard smaller on mobile (exactly square) */
+	.page-index .home-checkerboard {
+		width: 126px;
+		height: 126px;
+		aspect-ratio: 1 / 1;
+	}
+
+	/* Mobile: redefine checkerboard animation to use proportional quadrants (no distortion) */
+	@keyframes trost-cb-swap {
+		0%, 100% {
+			/* State 1: TL/BR = RED, TR/BL = GREEN */
+			background-image:
+				linear-gradient(0deg, #ff0000, #ff0000), /* TL */
+				linear-gradient(0deg, #00a86b, #00a86b), /* TR */
+				linear-gradient(0deg, #00a86b, #00a86b), /* BL */
+				linear-gradient(0deg, #ff0000, #ff0000); /* BR */
+			background-position:
+				left top,
+				right top,
+				left bottom,
+				right bottom;
+			background-size: 50% 50%;
+			background-repeat: no-repeat;
+		}
+		50% {
+			/* State 2: TL/BR = GREEN, TR/BL = RED */
+			background-image:
+				linear-gradient(0deg, #00a86b, #00a86b), /* TL */
+				linear-gradient(0deg, #ff0000, #ff0000), /* TR */
+				linear-gradient(0deg, #ff0000, #ff0000), /* BL */
+				linear-gradient(0deg, #00a86b, #00a86b); /* BR */
+			background-position:
+				left top,
+				right top,
+				left bottom,
+				right bottom;
+			background-size: 50% 50%;
+			background-repeat: no-repeat;
+		}
+	}
+
+	/* Make the mobile SVG logo ~30% larger without shifting top-left */
+	.page-index .grid__item-logo {
+		transform: translateZ(0) scale(1.30) !important;
+		transform-origin: 0 0; /* top left */
 	}
 
 	/* Nav overlay: full viewport height, covers whole site; logo + burger stay on top */
@@ -1299,7 +1398,7 @@ html.trost-custom-cursor .trost-cursor {
 	.nav-overlay-shows .shows-nav-list {
 		width: 100%;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 6px;
 	}
 
 	.nav-overlay-buttons {
@@ -1321,6 +1420,11 @@ html.trost-custom-cursor .trost-cursor {
 	}
 
 	body.nav-overlay-open .trost-info-container {
+		display: none;
+	}
+
+	/* Hide the fixed bottom wrapper (ticker + info) when mobile overlay is open */
+	body.nav-overlay-open .trost-bottom-wrapper {
 		display: none;
 	}
 
