@@ -70,13 +70,7 @@
 				</div>
 			</div>
 
-			<!-- Fixed centered checkerboard + button unit (not part of scrolling grid) -->
-			<div class="home-fixed-center" aria-hidden="false">
-				<div class="home-checkerboard" aria-hidden="true"></div>
-				<span class="button">
-					<a href="https://www.steirischerherbst.at/de/program/events/9082/kunstraum-trost-jakob-kolb-vessels-engine-room" target="_blank" rel="noopener noreferrer">steirischer herbst ’26</a>
-				</span>
-			</div>
+
 
 		</main>
 
