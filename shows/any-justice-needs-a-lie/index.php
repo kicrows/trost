@@ -220,7 +220,7 @@ $isVeryLongDescription = $descriptionLength > 3000;
 		<!-- Primary Meta Tags -->
 		<title><?php echo htmlspecialchars($pageTitle); ?> • TROST</title>
 		<meta name="title" content="<?php echo htmlspecialchars($pageTitle); ?> • TROST">
-		<meta name="description" content="<?php echo htmlspecialchars($pageTitle); ?> at TROST • Studio, Workspace & Exhibition Venue • Graz">
+		<meta name="description" content="Any Justice Needs a Lie — group exhibition at TROST, Graz, with Anna Jermolaewa, Scott Clifford Evans, René Stiegler, Markus Sworcik and others; curated by Robert Gruber, Markus Sworcik, René Stiegler.">
 		<meta name="keywords" content="TROST, art studio, exhibition venue, Graz, <?php echo htmlspecialchars($pageTitle); ?>">
 		<meta name="author" content="TROST">
 		<meta name="robots" content="index, follow">

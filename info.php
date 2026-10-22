@@ -12,7 +12,7 @@
 		<!-- Primary Meta Tags -->
 		<title>Info • TROST</title>
 		<meta name="title" content="Info • TROST">
-		<meta name="description" content="TROST is a studio, workspace, and occasional exhibition venue run by René Stiegler and Markus Sworcik in Graz.">
+		<meta name="description" content="TROST (trost.spc) is an artist-run studio and occasional exhibition space in Graz, founded by René Stiegler and Markus Sworcik, presenting process-led installations, sculpture, video and sound.">
 		<meta name="keywords" content="TROST, art studio, exhibition venue, Graz, René Stiegler, Markus Sworcik">
 		<meta name="author" content="TROST">
 		<meta name="robots" content="index, follow">

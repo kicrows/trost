@@ -220,7 +220,7 @@ $isVeryLongDescription = $descriptionLength > 3000;
 		<!-- Primary Meta Tags -->
 		<title><?php echo htmlspecialchars($pageTitle); ?> • TROST</title>
 		<meta name="title" content="<?php echo htmlspecialchars($pageTitle); ?> • TROST">
-		<meta name="description" content="<?php echo htmlspecialchars($pageTitle); ?> at TROST • Studio, Workspace & Exhibition Venue • Graz">
+		<meta name="description" content="Half Dry, Half Memory — group exhibition at TROST, Graz, with nine artists including Julian Siffert, Yixuan Hu, Jan Brauer and René Stiegler; fragments, process and memory.">
 		<meta name="keywords" content="TROST, art studio, exhibition venue, Graz, <?php echo htmlspecialchars($pageTitle); ?>">
 		<meta name="author" content="TROST">
 		<meta name="robots" content="index, follow">
